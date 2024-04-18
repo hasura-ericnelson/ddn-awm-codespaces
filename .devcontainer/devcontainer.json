@@ -9,5 +9,5 @@
         "extensions": ["HasuraHQ.hasura"]
       }
     },
-    "postCreateCommand": "chmod +x codespace_setup.sh && ./codespace_setup.sh"
+    "postCreateCommand": "curl -L https://graphql-engine-cdn.hasura.io/ddn/cli/v1/get.sh | bash"
   }
