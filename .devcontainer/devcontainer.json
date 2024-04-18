@@ -1,0 +1,13 @@
+{
+    "name": "Hasura DDN Codespace",
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "terminal.integrated.shell.linux": "/bin/bash",
+          "terminal.integrated.shellArgs.linux": ["-l"]
+        },
+        "extensions": ["HasuraHQ.hasura"]
+      }
+    },
+    "postCreateCommand": "chmod +x codespace_setup.sh && ./codespace_setup.sh"
+  }
