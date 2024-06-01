@@ -1,0 +1,90 @@
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Id
+  graphql:
+    typeName: App_Id
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Text
+  graphql:
+    typeName: App_Text
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Date
+  graphql:
+    typeName: App_Date
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Float_1
+  graphql:
+    typeName: App_Float1
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Boolean_1
+  graphql:
+    typeName: App_Boolean1
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: myelastic
+  dataConnectorScalarType: _id
+  representation: Id
+  graphql:
+    comparisonExpressionTypeName: App_IdComparisonExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: myelastic
+  dataConnectorScalarType: text
+  representation: Text
+  graphql:
+    comparisonExpressionTypeName: App_TextComparisonExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: myelastic
+  dataConnectorScalarType: date
+  representation: Date
+  graphql:
+    comparisonExpressionTypeName: App_DateComparisonExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: myelastic
+  dataConnectorScalarType: float
+  representation: Float_1
+  graphql:
+    comparisonExpressionTypeName: App_Float1ComparisonExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: myelastic
+  dataConnectorScalarType: boolean
+  representation: Boolean_1
+  graphql:
+    comparisonExpressionTypeName: App_Boolean1ComparisonExp
+
