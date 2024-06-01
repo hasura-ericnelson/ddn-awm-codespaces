@@ -123,7 +123,7 @@ definition:
     - name: baseTradedMarketValueAmount
       type: Float_1!
     - name: companyName
-      type: CompanyName!
+      type: "[CompanyName!]!"
     - name: instrumentCode
       type: Text!
   graphql:
@@ -239,23 +239,23 @@ definition:
     - name: instrumentCodes
       type: Text!
     - name: investmentObjectiveCode
-      type: InvestmentObjectiveCode!
+      type: "[InvestmentObjectiveCode!]!"
     - name: investmentObjectiveName
-      type: InvestmentObjectiveName!
+      type: "[InvestmentObjectiveName!]!"
     - name: largeCashPositionAlert
       type: Text!
     - name: marketNodeIdentifiers
       type: Text!
     - name: modelStrategyName
-      type: ModelStrategyName!
+      type: "[ModelStrategyName!]!"
     - name: occdNumber
       type: Text!
     - name: partyTypeName
       type: Text!
     - name: positions
-      type: Positions!
+      type: "[Positions!]!"
     - name: transactions
-      type: Transactions!
+      type: "[Transactions!]!"
   graphql:
     typeName: App_ScppRawAccountsPositionInstrumentTransactionsTaxlots
     inputTypeName: App_ScppRawAccountsPositionInstrumentTransactionsTaxlotsInput

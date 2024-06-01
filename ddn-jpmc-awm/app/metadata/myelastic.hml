@@ -456,8 +456,10 @@ definition:
                 name: float
             companyName:
               type:
-                type: named
-                name: companyName
+                type: array
+                element_type:
+                  type: named
+                  name: companyName
             instrumentCode:
               type:
                 type: named
@@ -566,12 +568,16 @@ definition:
                 name: text
             investmentObjectiveCode:
               type:
-                type: named
-                name: investmentObjectiveCode
+                type: array
+                element_type:
+                  type: named
+                  name: investmentObjectiveCode
             investmentObjectiveName:
               type:
-                type: named
-                name: investmentObjectiveName
+                type: array
+                element_type:
+                  type: named
+                  name: investmentObjectiveName
             largeCashPositionAlert:
               type:
                 type: named
@@ -582,8 +588,10 @@ definition:
                 name: text
             modelStrategyName:
               type:
-                type: named
-                name: modelStrategyName
+                type: array
+                element_type:
+                  type: named
+                  name: modelStrategyName
             occdNumber:
               type:
                 type: named
@@ -594,12 +602,16 @@ definition:
                 name: text
             positions:
               type:
-                type: named
-                name: positions
+                type: array
+                element_type:
+                  type: named
+                  name: positions
             transactions:
               type:
-                type: named
-                name: transactions
+                type: array
+                element_type:
+                  type: named
+                  name: transactions
         shape:
           fields: {}
         sparse_vector:
@@ -674,7 +686,7 @@ definition:
       functions: []
       procedures: []
     capabilities:
-      version: 0.1.2
+      version: 0.1.3
       capabilities:
         query:
           aggregates: {}
