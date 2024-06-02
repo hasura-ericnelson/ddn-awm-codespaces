@@ -1,0 +1,33 @@
+
+
+# ts connector update
+ddn connector build create --connector app/connector/myts/connector.cloud.yaml --target-connector-link myts --target-supergraph ./supergraph.cloud.yaml && ddn supergraph build create --supergraph ./supergraph.cloud.yaml
+
+# elastic connector update
+ddn connector build create --connector app/connector/myts/connector.cloud.yaml --target-connector-link myts --target-supergraph ./supergraph.cloud.yaml && ddn supergraph build create --supergraph ./supergraph.cloud.yaml
+ddn connector-link update myelastic --subgraph app --add-all-resources
+
+
+ddn connector-link update myts --subgraph app --add-all-resources
+
+curl -X GET "localhost:9200/_search?pretty" -H 'Content-Type: application/json' -d'
+ {
+    "range": {
+      "cashPercentage": {
+        "gt": 50
+      }
+    }
+  }
+'
+
+
+
+{
+      range: {
+        age: {
+          gte: 10,
+          lte: 20,
+          boost: 2
+        }
+      }
+    }
