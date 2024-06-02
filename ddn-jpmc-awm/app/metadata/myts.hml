@@ -1,0 +1,60 @@
+kind: DataConnectorLink
+version: v1
+definition:
+  name: myts
+  url:
+    readWriteUrls:
+      read:
+        valueFromEnv: APP_MYTS_READ_URL
+      write:
+        valueFromEnv: APP_MYTS_WRITE_URL
+  schema:
+    version: v0.1
+    schema:
+      scalar_types:
+        Float:
+          representation:
+            type: float64
+          aggregate_functions: {}
+          comparison_operators:
+            _eq:
+              type: equal
+        String:
+          representation:
+            type: string
+          aggregate_functions: {}
+          comparison_operators:
+            _eq:
+              type: equal
+      object_types: {}
+      collections: []
+      functions:
+        - name: hello
+          arguments:
+            name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+          result_type:
+            type: named
+            name: String
+        - name: formatPercentage
+          arguments:
+            num:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Float
+          result_type:
+            type: named
+            name: String
+      procedures: []
+    capabilities:
+      version: 0.1.2
+      capabilities:
+        query:
+          variables: {}
+        mutation: {}

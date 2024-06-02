@@ -1,0 +1,26 @@
+---
+kind: Command
+version: v1
+definition:
+  name: FormatPercentage
+  outputType: String!
+  arguments:
+    - name: num
+      type: Float
+  source:
+    dataConnectorName: myts
+    dataConnectorCommand:
+      function: formatPercentage
+  graphql:
+    rootFieldName: app_formatPercentage
+    rootFieldKind: Query
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: FormatPercentage
+  permissions:
+    - role: admin
+      allowExecution: true
+

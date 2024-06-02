@@ -1,0 +1,7 @@
+kind: Connector
+version: v1
+definition:
+  name: myts
+  subgraph: app
+  source: hasura/nodejs:v1.4.0
+  context: .
