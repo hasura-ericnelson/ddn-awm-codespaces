@@ -1,8 +1,86 @@
 
 /**
+ *  * USER CASE - Risk Profile Assessment
+ */
+/**
+ * @readonly
+ */
+export function assessRiskProfile (positions: Position[]) {
+  const riskCategories: { [key: string]: keyof RiskProfile } = {
+    'Equities': 'High',
+    'Fixed Income': 'Low',
+    'Commodities': 'Medium',
+    'Real Estate': 'Medium',
+    'Alternatives': 'High'
+  };
+
+  // Initialize with predefined keys
+  let riskProfile: RiskProfile = {
+    High: 0,
+    Medium: 0,
+    Low: 0
+  };
+
+  positions.forEach(position => {
+    const riskCategory = riskCategories[position.assetClass];
+    if (riskCategory) {
+      riskProfile[riskCategory] += position.baseMarketPrice;
+    }
+  });
+
+  const total = riskProfile.High + riskProfile.Medium + riskProfile.Low;
+  return {
+    highRiskPercentage: (riskProfile.High / total) * 100,
+    mediumRiskPercentage: (riskProfile.Medium / total) * 100,
+    lowRiskPercentage: (riskProfile.Low / total) * 100
+  };
+};
+
+
+
+/**
+ * USE CASE - Cash allocation warning
+ */
+
+export function cashAllocationWarning(cashAllocation:number, threshold = .15): boolean {
+  return cashAllocation > threshold ? true : false;
+};
+
+
+/** 
+ * USE CASE - Portfolio Performance
+ */
+/**
+ * @readonly formatted portfolioPerformance
+ */
+export function portfolioPerformanceFormatted(positions:Position[])  {
+  const { numPositions, totalGainLoss, percentageReturn } = calculatePositionPerformance(positions);
+  const formattedNumPositions = numPositions.toLocaleString(undefined, { maximumSignificantDigits: 3 })
+
+  const formattedTotalGainLoss = totalGainLoss.toLocaleString(undefined, {
+    style: 'currency',
+    currency: `USD`,
+    minimumFractionDigits: 2
+  })
+
+  const formattedPercentageReturn = percentageReturn.toLocaleString(undefined, {
+    style: 'percent',
+    minimumFractionDigits: 2
+  })
+
+  return {formattedNumPositions, formattedTotalGainLoss,formattedPercentageReturn}
+}
+
+
+/**
  * @readonly Calculate the overall performance of a client's portfolio by analyzing the gains and losses from their positions
  */
 export function portfolioPerformance(positions: Position[])  {
+  return calculatePositionPerformance(positions);
+};
+
+
+function calculatePositionPerformance(positions: Position[]) {
   let totalGainLoss = 0;
   let totalInvested = 0;
 
@@ -13,13 +91,9 @@ export function portfolioPerformance(positions: Position[])  {
     totalInvested += position.baseAdjustedCostAmount;
   });
 
-  const percentageReturn = formatPercentage((totalGainLoss / totalInvested));
+  const percentageReturn = (totalGainLoss / totalInvested);
   return { numPositions, totalGainLoss, percentageReturn };
-};
-
-
-
-
+}
 
 /**
  * @readonly Calculates the total of all transactions' baseGrossAmount
@@ -90,14 +164,16 @@ export function formatPercentage(num?: number): string {
 
 
 // Types
+
 export interface Transaction {
   baseGrossAmount: number;
-  accountNumber:   string;
+  accountNumber:   string;  
   instrumentCode:  string;
 }
 export interface Position {
   accountBaseCurrency:          string;
   accountNumber:                string;
+  assetClass:                   string;
   baseAdjustedCostAmount:       number;
   baseExpectedIncomeAmount:     number;
   baseMarketPrice:              number;
@@ -107,4 +183,10 @@ export interface Position {
     raw: string;
   }[];
   instrumentCode:               string;
+}
+
+interface RiskProfile {
+  High: number;
+  Medium: number;
+  Low: number;
 }

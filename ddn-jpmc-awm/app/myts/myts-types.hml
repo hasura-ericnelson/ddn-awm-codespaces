@@ -18,3 +18,13 @@ definition:
   graphql:
     comparisonExpressionTypeName: App_FloatComparisonExp
 
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: myts
+  dataConnectorScalarType: Boolean
+  representation: Boolean
+  graphql:
+    comparisonExpressionTypeName: App_BooleanComparisonExp
+

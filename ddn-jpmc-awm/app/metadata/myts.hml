@@ -12,6 +12,13 @@ definition:
     version: v0.1
     schema:
       scalar_types:
+        Boolean:
+          representation:
+            type: boolean
+          aggregate_functions: {}
+          comparison_operators:
+            _eq:
+              type: equal
         Float:
           representation:
             type: float64
@@ -34,6 +41,10 @@ definition:
                 type: named
                 name: String
             accountNumber:
+              type:
+                type: named
+                name: String
+            assetClass:
               type:
                 type: named
                 name: String
@@ -87,6 +98,20 @@ definition:
               type:
                 type: named
                 name: String
+        assessRiskProfile_output:
+          fields:
+            highRiskPercentage:
+              type:
+                type: named
+                name: Float
+            lowRiskPercentage:
+              type:
+                type: named
+                name: Float
+            mediumRiskPercentage:
+              type:
+                type: named
+                name: Float
         portfolioPerformance_output:
           fields:
             numPositions:
@@ -96,13 +121,49 @@ definition:
             percentageReturn:
               type:
                 type: named
-                name: String
+                name: Float
             totalGainLoss:
               type:
                 type: named
                 name: Float
+        portfolioPerformanceFormatted_output:
+          fields:
+            formattedNumPositions:
+              type:
+                type: named
+                name: String
+            formattedPercentageReturn:
+              type:
+                type: named
+                name: String
+            formattedTotalGainLoss:
+              type:
+                type: named
+                name: String
       collections: []
       functions:
+        - name: assessRiskProfile
+          arguments:
+            positions:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: Position
+          result_type:
+            type: named
+            name: assessRiskProfile_output
+        - name: portfolioPerformanceFormatted
+          arguments:
+            positions:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: Position
+          result_type:
+            type: named
+            name: portfolioPerformanceFormatted_output
         - name: portfolioPerformance
           arguments:
             positions:
@@ -158,7 +219,21 @@ definition:
           result_type:
             type: named
             name: String
-      procedures: []
+      procedures:
+        - name: cashAllocationWarning
+          description: USE CASE - Cash allocation warning
+          arguments:
+            cashAllocation:
+              type:
+                type: named
+                name: Float
+            threshold:
+              type:
+                type: named
+                name: Float
+          result_type:
+            type: named
+            name: Boolean
     capabilities:
       version: 0.1.2
       capabilities:

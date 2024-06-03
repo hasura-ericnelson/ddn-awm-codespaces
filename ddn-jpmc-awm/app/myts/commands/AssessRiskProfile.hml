@@ -1,0 +1,59 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: AssessRiskProfileOutput
+  fields:
+    - name: highRiskPercentage
+      type: Float!
+    - name: lowRiskPercentage
+      type: Float!
+    - name: mediumRiskPercentage
+      type: Float!
+  graphql:
+    typeName: App_AssessRiskProfileOutput
+    inputTypeName: App_AssessRiskProfileOutputInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: myts
+      dataConnectorObjectType: assessRiskProfile_output
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: AssessRiskProfileOutput
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - highRiskPercentage
+          - lowRiskPercentage
+          - mediumRiskPercentage
+
+---
+kind: Command
+version: v1
+definition:
+  name: AssessRiskProfile
+  outputType: AssessRiskProfileOutput!
+  arguments:
+    - name: positions
+      type: "[Position!]!"
+  source:
+    dataConnectorName: myts
+    dataConnectorCommand:
+      function: assessRiskProfile
+  graphql:
+    rootFieldName: app_assessRiskProfile
+    rootFieldKind: Query
+  description: USER CASE - Risk Profile Assessment
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: AssessRiskProfile
+  permissions:
+    - role: admin
+      allowExecution: true
+

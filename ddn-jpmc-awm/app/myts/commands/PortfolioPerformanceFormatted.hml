@@ -1,0 +1,58 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: PortfolioPerformanceFormattedOutput
+  fields:
+    - name: formattedNumPositions
+      type: String!
+    - name: formattedPercentageReturn
+      type: String!
+    - name: formattedTotalGainLoss
+      type: String!
+  graphql:
+    typeName: App_PortfolioPerformanceFormattedOutput
+    inputTypeName: App_PortfolioPerformanceFormattedOutputInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: myts
+      dataConnectorObjectType: portfolioPerformanceFormatted_output
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: PortfolioPerformanceFormattedOutput
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - formattedNumPositions
+          - formattedPercentageReturn
+          - formattedTotalGainLoss
+
+---
+kind: Command
+version: v1
+definition:
+  name: PortfolioPerformanceFormatted
+  outputType: PortfolioPerformanceFormattedOutput!
+  arguments:
+    - name: positions
+      type: "[Position!]!"
+  source:
+    dataConnectorName: myts
+    dataConnectorCommand:
+      function: portfolioPerformanceFormatted
+  graphql:
+    rootFieldName: app_portfolioPerformanceFormatted
+    rootFieldKind: Query
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: PortfolioPerformanceFormatted
+  permissions:
+    - role: admin
+      allowExecution: true
+

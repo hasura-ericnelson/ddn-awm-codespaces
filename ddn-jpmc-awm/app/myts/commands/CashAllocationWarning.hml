@@ -1,0 +1,29 @@
+---
+kind: Command
+version: v1
+definition:
+  name: CashAllocationWarning
+  outputType: Boolean!
+  arguments:
+    - name: cashAllocation
+      type: Float!
+    - name: threshold
+      type: Float!
+  source:
+    dataConnectorName: myts
+    dataConnectorCommand:
+      procedure: cashAllocationWarning
+  graphql:
+    rootFieldName: app_cashAllocationWarning
+    rootFieldKind: Mutation
+  description: USE CASE - Cash allocation warning
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: CashAllocationWarning
+  permissions:
+    - role: admin
+      allowExecution: true
+

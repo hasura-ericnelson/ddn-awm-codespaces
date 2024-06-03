@@ -91,61 +91,6 @@ definition:
                 element_type:
                   type: named
                   name: boolean
-        date:
-          representation:
-            type: string
-          aggregate_functions:
-            avg:
-              result_type:
-                type: named
-                name: long
-            cardinality:
-              result_type:
-                type: named
-                name: integer
-            max:
-              result_type:
-                type: named
-                name: long
-            min:
-              result_type:
-                type: named
-                name: long
-            stats:
-              result_type:
-                type: named
-                name: stats
-            sum:
-              result_type:
-                type: named
-                name: long
-            value_count:
-              result_type:
-                type: named
-                name: integer
-          comparison_operators:
-            match:
-              type: custom
-              argument_type:
-                type: named
-                name: date
-            match_phrase:
-              type: custom
-              argument_type:
-                type: named
-                name: date
-            term:
-              type: custom
-              argument_type:
-                type: named
-                name: date
-            terms:
-              type: custom
-              argument_type:
-                type: array
-                element_type:
-                  type: named
-                  name: date
         double:
           representation:
             type: number
@@ -434,6 +379,10 @@ definition:
               type:
                 type: named
                 name: text
+            assetClass:
+              type:
+                type: named
+                name: text
             baseAdjustedCostAmount:
               type:
                 type: named
@@ -521,7 +470,7 @@ definition:
             businessDate:
               type:
                 type: named
-                name: date
+                name: text
             businessSystemCode:
               type:
                 type: named
@@ -543,6 +492,10 @@ definition:
                 type: named
                 name: text
             coverageUsers:
+              type:
+                type: named
+                name: text
+            cusipCodes:
               type:
                 type: named
                 name: text
@@ -578,10 +531,14 @@ definition:
                 element_type:
                   type: named
                   name: investmentObjectiveName
-            largeCashPositionAlert:
+            isinCodes:
               type:
                 type: named
                 name: text
+            largeCashPositionAlert:
+              type:
+                type: named
+                name: boolean
             marketNodeIdentifiers:
               type:
                 type: named

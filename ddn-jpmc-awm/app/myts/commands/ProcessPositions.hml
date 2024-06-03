@@ -48,6 +48,8 @@ definition:
       type: "[Array!]!"
     - name: instrumentCode
       type: String!
+    - name: assetClass
+      type: String!
   graphql:
     typeName: App_Position
     inputTypeName: App_PositionInput
@@ -73,6 +75,7 @@ definition:
           - baseTradedMarketValueAmount
           - companyName
           - instrumentCode
+          - assetClass
 
 ---
 kind: Command
