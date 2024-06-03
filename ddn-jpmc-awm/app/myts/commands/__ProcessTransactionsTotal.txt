@@ -1,0 +1,58 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Transaction
+  fields:
+    - name: accountNumber
+      type: String!
+    - name: baseGrossAmount
+      type: Float!
+    - name: instrumentCode
+      type: String!
+  graphql:
+    typeName: App_Transaction
+    inputTypeName: App_TransactionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: myts
+      dataConnectorObjectType: Transaction
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Transaction
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - accountNumber
+          - baseGrossAmount
+          - instrumentCode
+
+---
+kind: Command
+version: v1
+definition:
+  name: ProcessTransactionsTotal
+  outputType: Float!
+  arguments:
+    - name: transactions
+      type: "[Transaction!]!"
+  source:
+    dataConnectorName: myts
+    dataConnectorCommand:
+      function: processTransactionsTotal
+  graphql:
+    rootFieldName: app_processTransactionsTotal
+    rootFieldKind: Query
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: ProcessTransactionsTotal
+  permissions:
+    - role: admin
+      allowExecution: true
+

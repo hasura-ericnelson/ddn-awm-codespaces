@@ -23,4 +23,3 @@ definition:
   permissions:
     - role: admin
       allowExecution: true
-

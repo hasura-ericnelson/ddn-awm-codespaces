@@ -26,7 +26,67 @@ definition:
           comparison_operators:
             _eq:
               type: equal
-      object_types: {}
+      object_types:
+        Position:
+          fields:
+            accountBaseCurrency:
+              type:
+                type: named
+                name: String
+            accountNumber:
+              type:
+                type: named
+                name: String
+            baseAdjustedCostAmount:
+              type:
+                type: named
+                name: Float
+            baseExpectedIncomeAmount:
+              type:
+                type: named
+                name: Float
+            baseMarketPrice:
+              type:
+                type: named
+                name: Float
+            baseSettledMarketValueAmount:
+              type:
+                type: named
+                name: Float
+            baseTradedMarketValueAmount:
+              type:
+                type: named
+                name: Float
+            companyName:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: array
+            instrumentCode:
+              type:
+                type: named
+                name: String
+        Transaction:
+          fields:
+            accountNumber:
+              type:
+                type: named
+                name: String
+            baseGrossAmount:
+              type:
+                type: named
+                name: Float
+            instrumentCode:
+              type:
+                type: named
+                name: String
+        array:
+          fields:
+            raw:
+              type:
+                type: named
+                name: String
       collections: []
       functions:
         - name: hello
@@ -51,6 +111,28 @@ definition:
           result_type:
             type: named
             name: String
+        - name: processTransactionsTotal
+          arguments:
+            transactions:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: Transaction
+          result_type:
+            type: named
+            name: Float
+        - name: processPositions
+          arguments:
+            positions:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: Position
+          result_type:
+            type: named
+            name: Float
       procedures: []
     capabilities:
       version: 0.1.2

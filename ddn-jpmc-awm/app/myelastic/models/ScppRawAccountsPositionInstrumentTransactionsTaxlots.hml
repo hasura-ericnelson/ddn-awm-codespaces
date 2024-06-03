@@ -646,3 +646,40 @@ definition:
       select:
         filter: null
 
+# 
+---
+kind: Relationship
+version: v1
+definition:
+  name: cashPercentageFormatted
+  source: ScppRawAccountsPositionInstrumentTransactionsTaxlots
+  target:
+    command:
+      name: FormatPercentage
+      subgraph: app
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: cashPercentage
+      target:
+        argument:
+          argumentName: num
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: transactionsTotalAmount
+  source: ScppRawAccountsPositionInstrumentTransactionsTaxlots
+  target:
+    command:
+      name: ProcessTransactionsTotal
+      subgraph: app
+      relationshipType: Array
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: transactions
+      target:
+        argument:
+          argumentName: transactions
