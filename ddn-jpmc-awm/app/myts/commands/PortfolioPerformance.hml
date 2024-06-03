@@ -1,0 +1,58 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: PortfolioPerformanceOutput
+  fields:
+    - name: percentageReturn
+      type: Float!
+    - name: totalGainLoss
+      type: Float!
+    - name: numPositions
+      type: Float!
+  graphql:
+    typeName: App_PortfolioPerformanceOutput
+    inputTypeName: App_PortfolioPerformanceOutputInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: myts
+      dataConnectorObjectType: portfolioPerformance_output
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: PortfolioPerformanceOutput
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - percentageReturn
+          - totalGainLoss
+          - numPositions
+
+---
+kind: Command
+version: v1
+definition:
+  name: PortfolioPerformance
+  outputType: PortfolioPerformanceOutput!
+  arguments:
+    - name: positions
+      type: "[Position!]!"
+  source:
+    dataConnectorName: myts
+    dataConnectorCommand:
+      function: portfolioPerformance
+  graphql:
+    rootFieldName: app_portfolioPerformance
+    rootFieldKind: Query
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: PortfolioPerformance
+  permissions:
+    - role: admin
+      allowExecution: true
+

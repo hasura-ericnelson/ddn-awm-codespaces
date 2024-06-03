@@ -87,30 +87,33 @@ definition:
               type:
                 type: named
                 name: String
+        portfolioPerformance_output:
+          fields:
+            numPositions:
+              type:
+                type: named
+                name: Float
+            percentageReturn:
+              type:
+                type: named
+                name: String
+            totalGainLoss:
+              type:
+                type: named
+                name: Float
       collections: []
       functions:
-        - name: hello
+        - name: portfolioPerformance
           arguments:
-            name:
+            positions:
               type:
-                type: nullable
-                underlying_type:
+                type: array
+                element_type:
                   type: named
-                  name: String
+                  name: Position
           result_type:
             type: named
-            name: String
-        - name: formatPercentage
-          arguments:
-            num:
-              type:
-                type: nullable
-                underlying_type:
-                  type: named
-                  name: Float
-          result_type:
-            type: named
-            name: String
+            name: portfolioPerformance_output
         - name: processTransactionsTotal
           arguments:
             transactions:
@@ -133,6 +136,28 @@ definition:
           result_type:
             type: named
             name: Float
+        - name: hello
+          arguments:
+            name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+          result_type:
+            type: named
+            name: String
+        - name: formatPercentage
+          arguments:
+            num:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Float
+          result_type:
+            type: named
+            name: String
       procedures: []
     capabilities:
       version: 0.1.2

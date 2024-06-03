@@ -683,3 +683,21 @@ definition:
       target:
         argument:
           argumentName: transactions
+
+--- 
+kind: Relationship
+version: v1
+definition:
+  name: portfolioPerformance
+  source: ScppRawAccountsPositionInstrumentTransactionsTaxlots
+  target:
+    command:
+      name: PortfolioPerformance
+      subgraph: app
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: positions
+      target:
+        argument:
+          argumentName: positions
