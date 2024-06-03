@@ -2,7 +2,39 @@
 /**
  * @readonly Calculate the overall performance of a client's portfolio by analyzing the gains and losses from their positions
  */
-export function portfolioPerformance(positions: Position[])  {
+// export function portfolioPerformance(positions: Position[])  {
+//   let totalGainLoss = 0;
+//   let totalInvested = 0;
+
+//   const numPositions = positions.length;
+//   positions.forEach(position => {
+//     const gainLoss = position.baseSettledMarketValueAmount - position.baseAdjustedCostAmount;
+//     totalGainLoss += gainLoss;
+//     totalInvested += position.baseAdjustedCostAmount;
+//   });
+
+//   const percentageReturn = formatPercentage((totalGainLoss / totalInvested));
+//   return { numPositions, totalGainLoss, percentageReturn };
+// };
+export function portfolioPerformance(positions:Position[])  {
+  const { numPositions, totalGainLoss, percentageReturn } = calculatePositionPerformance(positions);
+  const formattedNumPositions = numPositions.toLocaleString(undefined, { maximumSignificantDigits: 3 })
+
+  const formattedTotalGainLoss = totalGainLoss.toLocaleString(undefined, {
+    style: 'currency',
+    currency: `USD`,
+    minimumFractionDigits: 2
+  })
+
+  const formattedPercentageReturn = percentageReturn.toLocaleString(undefined, {
+    style: 'percent',
+    minimumFractionDigits: 2
+  })
+
+  return {formattedNumPositions, formattedTotalGainLoss,formattedPercentageReturn}
+}
+
+function calculatePositionPerformance(positions: Position[]) {
   let totalGainLoss = 0;
   let totalInvested = 0;
 
@@ -13,18 +45,15 @@ export function portfolioPerformance(positions: Position[])  {
     totalInvested += position.baseAdjustedCostAmount;
   });
 
-  const percentageReturn = formatPercentage((totalGainLoss / totalInvested));
+  const percentageReturn = (totalGainLoss / totalInvested);
   return { numPositions, totalGainLoss, percentageReturn };
-};
-
-
-
+}
 
 
 /**
  * @readonly Calculates the total of all transactions' baseGrossAmount
  */
-export function processTransactionsTotal(transactions: Transaction[]): number {
+export function processTransactionsGross(transactions: Transaction[]): number {
   const initialValue = 0;
   const sumWithInitial = transactions.reduce(
     (accumulator, currentValue) => accumulator + currentValue.baseGrossAmount,
@@ -32,21 +61,6 @@ export function processTransactionsTotal(transactions: Transaction[]): number {
   );
   return sumWithInitial;
 }
-
-
-
-
-/**
- * @readonly Formats a number as a percentage
- */
-export function processPositions(positions: Position[]): number {
-  return 42
-}
-
-
-
-
-
 
 
 

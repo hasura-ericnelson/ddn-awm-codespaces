@@ -34,7 +34,7 @@ definition:
 kind: Command
 version: v1
 definition:
-  name: ProcessTransactionsTotal
+  name: ProcessTransactionsGross
   outputType: Float!
   arguments:
     - name: transactions
@@ -42,16 +42,16 @@ definition:
   source:
     dataConnectorName: myts
     dataConnectorCommand:
-      function: processTransactionsTotal
+      function: processTransactionsGross
   graphql:
-    rootFieldName: app_processTransactionsTotal
+    rootFieldName: app_processTransactionsGross
     rootFieldKind: Query
 
 ---
 kind: CommandPermissions
 version: v1
 definition:
-  commandName: ProcessTransactionsTotal
+  commandName: ProcessTransactionsGross
   permissions:
     - role: admin
       allowExecution: true

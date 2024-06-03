@@ -89,18 +89,18 @@ definition:
                 name: String
         portfolioPerformance_output:
           fields:
-            numPositions:
-              type:
-                type: named
-                name: Float
-            percentageReturn:
+            formattedNumPositions:
               type:
                 type: named
                 name: String
-            totalGainLoss:
+            formattedPercentageReturn:
               type:
                 type: named
-                name: Float
+                name: String
+            formattedTotalGainLoss:
+              type:
+                type: named
+                name: String
       collections: []
       functions:
         - name: portfolioPerformance
@@ -114,7 +114,7 @@ definition:
           result_type:
             type: named
             name: portfolioPerformance_output
-        - name: processTransactionsTotal
+        - name: processTransactionsGross
           arguments:
             transactions:
               type:
@@ -122,17 +122,6 @@ definition:
                 element_type:
                   type: named
                   name: Transaction
-          result_type:
-            type: named
-            name: Float
-        - name: processPositions
-          arguments:
-            positions:
-              type:
-                type: array
-                element_type:
-                  type: named
-                  name: Position
           result_type:
             type: named
             name: Float

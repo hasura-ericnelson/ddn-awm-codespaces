@@ -2,14 +2,90 @@
 kind: ObjectType
 version: v1
 definition:
+  name: Array
+  fields:
+    - name: raw
+      type: String!
+  graphql:
+    typeName: App_Array
+    inputTypeName: App_ArrayInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: myts
+      dataConnectorObjectType: array
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Array
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - raw
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Position
+  fields:
+    - name: accountBaseCurrency
+      type: String!
+    - name: accountNumber
+      type: String!
+    - name: baseAdjustedCostAmount
+      type: Float!
+    - name: baseExpectedIncomeAmount
+      type: Float!
+    - name: baseMarketPrice
+      type: Float!
+    - name: baseSettledMarketValueAmount
+      type: Float!
+    - name: baseTradedMarketValueAmount
+      type: Float!
+    - name: companyName
+      type: "[Array!]!"
+    - name: instrumentCode
+      type: String!
+  graphql:
+    typeName: App_Position
+    inputTypeName: App_PositionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: myts
+      dataConnectorObjectType: Position
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Position
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - accountBaseCurrency
+          - accountNumber
+          - baseAdjustedCostAmount
+          - baseExpectedIncomeAmount
+          - baseMarketPrice
+          - baseSettledMarketValueAmount
+          - baseTradedMarketValueAmount
+          - companyName
+          - instrumentCode
+
+---
+kind: ObjectType
+version: v1
+definition:
   name: PortfolioPerformanceOutput
   fields:
-    - name: percentageReturn
-      type: Float!
-    - name: totalGainLoss
-      type: Float!
-    - name: numPositions
-      type: Float!
+    - name: formattedNumPositions
+      type: String!
+    - name: formattedPercentageReturn
+      type: String!
+    - name: formattedTotalGainLoss
+      type: String!
   graphql:
     typeName: App_PortfolioPerformanceOutput
     inputTypeName: App_PortfolioPerformanceOutputInput
@@ -26,9 +102,9 @@ definition:
     - role: admin
       output:
         allowedFields:
-          - percentageReturn
-          - totalGainLoss
-          - numPositions
+          - formattedNumPositions
+          - formattedPercentageReturn
+          - formattedTotalGainLoss
 
 ---
 kind: Command

@@ -669,11 +669,11 @@ definition:
 kind: Relationship
 version: v1
 definition:
-  name: transactionsTotalAmount
+  name: transactionsTotalGross
   source: ScppRawAccountsPositionInstrumentTransactionsTaxlots
   target:
     command:
-      name: ProcessTransactionsTotal
+      name: ProcessTransactionsGross
       subgraph: app
       # relationshipType: Array
   mapping:
