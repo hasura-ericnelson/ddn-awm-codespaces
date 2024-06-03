@@ -675,7 +675,7 @@ definition:
     command:
       name: ProcessTransactionsTotal
       subgraph: app
-      relationshipType: Array
+      # relationshipType: Array
   mapping:
     - source:
         fieldPath:

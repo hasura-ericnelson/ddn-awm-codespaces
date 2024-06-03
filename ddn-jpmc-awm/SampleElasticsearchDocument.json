@@ -1,0 +1,474 @@
+ {
+        "accountBaseCurrency": "KWD",
+        "accountBusinessSystem": "Dietrich, Hahn and Ward",
+        "accountLobCode": "Commercial",
+        "accountNumber": "KZ650063274383N7G88Y",
+        "accountServiceCode": "da8qtNBYbf",
+        "accountStatusCode": "Active",
+        "accountStatusName": "solidly",
+        "accountTypeGroup": "Savings",
+        "areaNodeIdentifiers": "626c1388-35d1-43bc-a5da-a23b48dd076b",
+        "branchCode": "K3lBB",
+        "branchName": "Powlowski, Leannon and Reichel",
+        "businessDate": "Sun Jun 02 2024 09:24:00 GMT-0400 (Eastern Daylight Time)",
+        "businessSystemCode": "48oM8jr1",
+        "cashPercentage": 0.1691,
+        "cbosOrDfiAccount": false,
+        "corporateLobGroupCode": "QOw4e",
+        "costCenterCodes": "l4kjm6s",
+        "coverageUsers": "Retha_Macejkovic49",
+        "dmEciIdentifier": "ZGc7MK6j9f",
+        "eciIdentifier": "pesfINxNbj",
+        "financialAdvisorSid": "bee3491c-f03e-48db-b931-e40a6ce391b2",
+        "gwmIdentifier": "3f55a2a3-1ade-4405-b414-76f7436b1223",
+        "id": "1",
+        "instrumentCodes": "INSTRkNHqdJ",
+        "marketNodeIdentifiers": "cde77e8d-4d8b-4b18-8d0e-0f1859ebc498",
+        "occdNumber": "GOYMdvFnAH",
+        "partyTypeName": "Individual",
+        "largeCashPositionAlert": false,
+        "investmentObjectiveCode": [
+          {
+            "raw": "communities"
+          }
+        ],
+        "investmentObjectiveName": [
+          {
+            "raw": "database"
+          }
+        ],
+        "modelStrategyName": [
+          {
+            "raw": "eco-centric"
+          }
+        ],
+        "transactions": [
+          {
+            "baseGrossAmount": -61781.26,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRS5oK9"
+          },
+          {
+            "baseGrossAmount": -61502.17,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRaU1d2"
+          },
+          {
+            "baseGrossAmount": 74407.77,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRyrps1"
+          },
+          {
+            "baseGrossAmount": -60927.98,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRuqoOj"
+          },
+          {
+            "baseGrossAmount": 71597.73,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRe4bcA"
+          },
+          {
+            "baseGrossAmount": -53299.29,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRbHbvM"
+          },
+          {
+            "baseGrossAmount": 38175.36,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRzYfpr"
+          },
+          {
+            "baseGrossAmount": 40646.18,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRtwIGl"
+          },
+          {
+            "baseGrossAmount": -71242.98,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRwDPaG"
+          },
+          {
+            "baseGrossAmount": -66358.2,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRxJpRc"
+          },
+          {
+            "baseGrossAmount": -73709.18,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTR5LUHb"
+          },
+          {
+            "baseGrossAmount": 81103.37,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRDsQDO"
+          },
+          {
+            "baseGrossAmount": -29161.95,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRP3n91"
+          },
+          {
+            "baseGrossAmount": -60548.17,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRuJvYB"
+          },
+          {
+            "baseGrossAmount": 11511.74,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTR5BN62"
+          },
+          {
+            "baseGrossAmount": -3848.03,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRqZBfL"
+          },
+          {
+            "baseGrossAmount": 70913.81,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRh42vW"
+          },
+          {
+            "baseGrossAmount": -29038.44,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTROgWKy"
+          },
+          {
+            "baseGrossAmount": -94334.77,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRnskzb"
+          },
+          {
+            "baseGrossAmount": 89890.85,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTR5UiIw"
+          },
+          {
+            "baseGrossAmount": -42689.83,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTR9K6MK"
+          },
+          {
+            "baseGrossAmount": -83652.43,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRdpDGe"
+          },
+          {
+            "baseGrossAmount": 68046.74,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRP0gnB"
+          },
+          {
+            "baseGrossAmount": 43868.76,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRZqr1k"
+          },
+          {
+            "baseGrossAmount": -25063.74,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRPKKah"
+          },
+          {
+            "baseGrossAmount": 91205.33,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTR2udzq"
+          },
+          {
+            "baseGrossAmount": -53022.67,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRwCbC8"
+          },
+          {
+            "baseGrossAmount": -18518.27,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRMJih3"
+          },
+          {
+            "baseGrossAmount": 5903.95,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRScCmT"
+          },
+          {
+            "baseGrossAmount": 40272.81,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRC5etz"
+          },
+          {
+            "baseGrossAmount": -49157.46,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRwkUta"
+          },
+          {
+            "baseGrossAmount": -79285.16,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRAlAAn"
+          },
+          {
+            "baseGrossAmount": 92490.21,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRKhD9k"
+          },
+          {
+            "baseGrossAmount": -72358.1,
+            "accountNumber": "KZ650063274383N7G88Y",
+            "instrumentCode": "INSTRQwSUM"
+          }
+        ],
+        "positions": [
+          {
+            "accountBaseCurrency": "KZT",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 13430.29,
+            "baseExpectedIncomeAmount": 533.59,
+            "baseMarketPrice": 1242.6,
+            "baseSettledMarketValueAmount": 9966.76,
+            "baseTradedMarketValueAmount": 161996.8,
+            "companyName": [
+              {
+                "raw": "Prosacco - Barrows"
+              }
+            ],
+            "instrumentCode": "INSTRDJ3Ta"
+          },
+          {
+            "accountBaseCurrency": "TOP",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 29015.96,
+            "baseExpectedIncomeAmount": -4942.18,
+            "baseMarketPrice": 615.19,
+            "baseSettledMarketValueAmount": 62405.55,
+            "baseTradedMarketValueAmount": 81048.25,
+            "companyName": [
+              {
+                "raw": "Nitzsche Group"
+              }
+            ],
+            "instrumentCode": "INSTRCSXC8"
+          },
+          {
+            "accountBaseCurrency": "LYD",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 34274.29,
+            "baseExpectedIncomeAmount": -3916.16,
+            "baseMarketPrice": 1046.56,
+            "baseSettledMarketValueAmount": 157481.97,
+            "baseTradedMarketValueAmount": 42481.36,
+            "companyName": [
+              {
+                "raw": "Reilly Group"
+              }
+            ],
+            "instrumentCode": "INSTRpF55I"
+          },
+          {
+            "accountBaseCurrency": "NZD",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 21548.72,
+            "baseExpectedIncomeAmount": 6645.09,
+            "baseMarketPrice": 1316.32,
+            "baseSettledMarketValueAmount": 169825.09,
+            "baseTradedMarketValueAmount": 194354.73,
+            "companyName": [
+              {
+                "raw": "Quigley - Farrell"
+              }
+            ],
+            "instrumentCode": "INSTRGkg9C"
+          },
+          {
+            "accountBaseCurrency": "GEL",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 30294.72,
+            "baseExpectedIncomeAmount": 6355.07,
+            "baseMarketPrice": 651.43,
+            "baseSettledMarketValueAmount": 12855.79,
+            "baseTradedMarketValueAmount": 173496.02,
+            "companyName": [
+              {
+                "raw": "Powlowski - Ullrich"
+              }
+            ],
+            "instrumentCode": "INSTRx7tNH"
+          },
+          {
+            "accountBaseCurrency": "GMD",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 37915.11,
+            "baseExpectedIncomeAmount": 855.82,
+            "baseMarketPrice": 948.96,
+            "baseSettledMarketValueAmount": 108244.7,
+            "baseTradedMarketValueAmount": 32280.54,
+            "companyName": [
+              {
+                "raw": "Upton, Rogahn and Kuhic"
+              }
+            ],
+            "instrumentCode": "INSTRFjfRN"
+          },
+          {
+            "accountBaseCurrency": "INR",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 33266.72,
+            "baseExpectedIncomeAmount": -3535.83,
+            "baseMarketPrice": 1009.61,
+            "baseSettledMarketValueAmount": 23420.34,
+            "baseTradedMarketValueAmount": 136874.2,
+            "companyName": [
+              {
+                "raw": "Sauer, Walsh and Kris"
+              }
+            ],
+            "instrumentCode": "INSTRQbAf3"
+          },
+          {
+            "accountBaseCurrency": "ALL",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 23001.89,
+            "baseExpectedIncomeAmount": -373.87,
+            "baseMarketPrice": 431.1,
+            "baseSettledMarketValueAmount": 146934.8,
+            "baseTradedMarketValueAmount": 34843.32,
+            "companyName": [
+              {
+                "raw": "Bruen Group"
+              }
+            ],
+            "instrumentCode": "INSTRTlypl"
+          },
+          {
+            "accountBaseCurrency": "GNF",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 36474,
+            "baseExpectedIncomeAmount": -2625.08,
+            "baseMarketPrice": 890.22,
+            "baseSettledMarketValueAmount": 185925.65,
+            "baseTradedMarketValueAmount": 34207.05,
+            "companyName": [
+              {
+                "raw": "Wunsch - Wyman"
+              }
+            ],
+            "instrumentCode": "INSTRNDHNg"
+          },
+          {
+            "accountBaseCurrency": "STN",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 36212.28,
+            "baseExpectedIncomeAmount": -649.24,
+            "baseMarketPrice": 291.54,
+            "baseSettledMarketValueAmount": 159613.48,
+            "baseTradedMarketValueAmount": 120561.5,
+            "companyName": [
+              {
+                "raw": "Hyatt Inc"
+              }
+            ],
+            "instrumentCode": "INSTRL1Hic"
+          },
+          {
+            "accountBaseCurrency": "MMK",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 20319.54,
+            "baseExpectedIncomeAmount": -562.47,
+            "baseMarketPrice": 924.38,
+            "baseSettledMarketValueAmount": 185408.67,
+            "baseTradedMarketValueAmount": 180343.7,
+            "companyName": [
+              {
+                "raw": "Ward, Kuvalis and Hauck"
+              }
+            ],
+            "instrumentCode": "INSTRblROp"
+          },
+          {
+            "accountBaseCurrency": "ISK",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 24110.44,
+            "baseExpectedIncomeAmount": 2219.68,
+            "baseMarketPrice": 563.62,
+            "baseSettledMarketValueAmount": 34400.43,
+            "baseTradedMarketValueAmount": -3559.58,
+            "companyName": [
+              {
+                "raw": "Runte and Sons"
+              }
+            ],
+            "instrumentCode": "INSTRQqKtU"
+          },
+          {
+            "accountBaseCurrency": "BZD",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 39783.73,
+            "baseExpectedIncomeAmount": 3084.09,
+            "baseMarketPrice": 813.86,
+            "baseSettledMarketValueAmount": 34345.23,
+            "baseTradedMarketValueAmount": 199299.32,
+            "companyName": [
+              {
+                "raw": "Veum Inc"
+              }
+            ],
+            "instrumentCode": "INSTRjGauN"
+          },
+          {
+            "accountBaseCurrency": "GBP",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 31430.77,
+            "baseExpectedIncomeAmount": 5692.96,
+            "baseMarketPrice": 484.83,
+            "baseSettledMarketValueAmount": 111408.26,
+            "baseTradedMarketValueAmount": 22520.24,
+            "companyName": [
+              {
+                "raw": "Streich - Luettgen"
+              }
+            ],
+            "instrumentCode": "INSTRRyvy2"
+          },
+          {
+            "accountBaseCurrency": "VUV",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 31721.7,
+            "baseExpectedIncomeAmount": 552.79,
+            "baseMarketPrice": 586.92,
+            "baseSettledMarketValueAmount": 114833.08,
+            "baseTradedMarketValueAmount": 81671.06,
+            "companyName": [
+              {
+                "raw": "Schuster, Abbott and Gottlieb"
+              }
+            ],
+            "instrumentCode": "INSTRwZWPv"
+          },
+          {
+            "accountBaseCurrency": "USD",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 31706.31,
+            "baseExpectedIncomeAmount": 679.87,
+            "baseMarketPrice": 662.24,
+            "baseSettledMarketValueAmount": 134169.8,
+            "baseTradedMarketValueAmount": 36646.62,
+            "companyName": [
+              {
+                "raw": "Howell, Walsh and McDermott"
+              }
+            ],
+            "instrumentCode": "INSTRPhPvw"
+          },
+          {
+            "accountBaseCurrency": "SSP",
+            "accountNumber": "KZ650063274383N7G88Y",
+            "baseAdjustedCostAmount": 34325.53,
+            "baseExpectedIncomeAmount": -993.58,
+            "baseMarketPrice": 1080.97,
+            "baseSettledMarketValueAmount": 189100.68,
+            "baseTradedMarketValueAmount": 139810.23,
+            "companyName": [
+              {
+                "raw": "Bradtke, Rice and Wuckert"
+              }
+            ],
+            "instrumentCode": "INSTRd4o3N"
+          }
+        ]
+      }
