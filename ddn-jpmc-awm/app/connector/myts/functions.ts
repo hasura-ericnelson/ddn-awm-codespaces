@@ -53,13 +53,17 @@ function calculatePositionPerformance(positions: Position[]) {
 /**
  * @readonly Calculates the total of all transactions' baseGrossAmount
  */
-export function processTransactionsGross(transactions: Transaction[]): number {
+export function processTransactionsGross(transactions: Transaction[]): string {
   const initialValue = 0;
   const sumWithInitial = transactions.reduce(
     (accumulator, currentValue) => accumulator + currentValue.baseGrossAmount,
     initialValue,
   );
-  return sumWithInitial;
+  return sumWithInitial.toLocaleString(undefined, {
+    style: 'currency',
+    currency: `USD`,
+    minimumFractionDigits: 2
+  });
 }
 
 

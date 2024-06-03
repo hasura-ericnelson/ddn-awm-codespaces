@@ -124,7 +124,7 @@ definition:
                   name: Transaction
           result_type:
             type: named
-            name: Float
+            name: String
         - name: hello
           arguments:
             name:

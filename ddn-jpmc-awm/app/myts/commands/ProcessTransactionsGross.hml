@@ -35,7 +35,7 @@ kind: Command
 version: v1
 definition:
   name: ProcessTransactionsGross
-  outputType: Float!
+  outputType: String!
   arguments:
     - name: transactions
       type: "[Transaction!]!"
