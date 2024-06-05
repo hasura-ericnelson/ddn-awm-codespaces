@@ -1,0 +1,5 @@
+CONNECTOR=$1
+echo "updating $CONNECTOR connector"
+ddn connector-link update $CONNECTOR --subgraph app --add-all-resources
+ddn connector build create --connector app/connector/$CONNECTOR/connector.cloud.yaml --target-connector-link $CONNECTOR --target-supergraph ./supergraph.cloud.yaml
+ddn supergraph build create --supergraph ./supergraph.cloud.yaml

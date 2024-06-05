@@ -1,21 +1,11 @@
 
+
+
 /**
  * @readonly Calculate the overall performance of a client's portfolio by analyzing the gains and losses from their positions
  */
-// export function portfolioPerformance(positions: Position[])  {
-//   let totalGainLoss = 0;
-//   let totalInvested = 0;
 
-//   const numPositions = positions.length;
-//   positions.forEach(position => {
-//     const gainLoss = position.baseSettledMarketValueAmount - position.baseAdjustedCostAmount;
-//     totalGainLoss += gainLoss;
-//     totalInvested += position.baseAdjustedCostAmount;
-//   });
 
-//   const percentageReturn = formatPercentage((totalGainLoss / totalInvested));
-//   return { numPositions, totalGainLoss, percentageReturn };
-// };
 export function portfolioPerformance(positions:Position[])  {
   const { numPositions, totalGainLoss, percentageReturn } = calculatePositionPerformance(positions);
   const formattedNumPositions = numPositions.toLocaleString(undefined, { maximumSignificantDigits: 3 })
@@ -26,6 +16,13 @@ export function portfolioPerformance(positions:Position[])  {
     minimumFractionDigits: 2
   })
 
+  /*
+   *
+            Change/Add/Remove Business Logic as needed.  The API reflects these changes and automatically stays in sync.
+   *
+   */
+
+  // const formattedPercentageReturn = percentageReturn;
   const formattedPercentageReturn = percentageReturn.toLocaleString(undefined, {
     style: 'percent',
     minimumFractionDigits: 2
@@ -33,6 +30,10 @@ export function portfolioPerformance(positions:Position[])  {
 
   return {formattedNumPositions, formattedTotalGainLoss,formattedPercentageReturn}
 }
+
+
+
+
 
 function calculatePositionPerformance(positions: Position[]) {
   let totalGainLoss = 0;

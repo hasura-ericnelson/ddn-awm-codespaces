@@ -1,13 +1,17 @@
 
 
-# AWM Hasura DDN POC w/ Elasticsearch and TS Codespace 
+# Hasura DDN Test Drive with Elasticsearch
 
-Hasura DDN POC-in-a-box!  This is a pre-configured Hasura DDN project that is pre-configured with Elasticsearch and TypeScript connectors and an Elasticserach database filled with sample financial data.  Details of the data can be found below.
+This is a packaged Hasura DDN project pre-configured with the Elasticsearch connector and Elasticsearch database filled with sample financial data.  Details of the data can be found below.
 
 ## Getting Started
 
-### Step 1: Authenticate with Hasura DDN CLI
-To begin, authenticate with the Hasura DDN CLI using your Personal Access Token (PAT). Don't have a PAT yet? Generate one [here](https://hasura.io/docs/latest/api-reference/cloud-api-reference/#authentication).
+### Step 1: Get project link and user accounts
+To begin, get a link to a Test Drive project from your Hasura contact. You will also need Github and Hasura Cloud accounts if you don't already have them.
+
+### Step 2: Login to Github and Hasura Cloud
+To begin, login to Github to access the project.  Once you have access, start up the Codespaces and open the provided terminal.  Login to Hasura Cloud and create a Personal Access Token (PAT).  A Hasura Solutions Engineer can help with this process.  
+Authenticate with the Hasura DDN CLI using your Personal Access Token (PAT). Don't have a PAT yet? Generate one [here](https://hasura.io/docs/latest/api-reference/cloud-api-reference/#authentication).
 
 Run the following command to log in:
 
@@ -17,7 +21,7 @@ ddn login --pat {{YOUR_HASURA_PAT}}
 
 > **Note**: Since GitHub Codespaces operate on remote machine configurations, the OAuth login with redirect won't function. Please use your PAT for authentication.  Ensure you use a PAT for the correct environment.  Ie, use a PAT from staging if using the staging `ddn` CLI.  
 
-### Step 2: Experiment with your DDN Supergraph Project
+### Step 3: Experiment with your DDN Supergraph Project
 With authentication complete, you can now create a new DDN supergraph project and dive into development. Follow the steps outlined [here](https://hasura.io/docs/3.0/getting-started/create-a-project#step-3-create-a-new-project) to set up your project and begin building your supergraph.
 
 
