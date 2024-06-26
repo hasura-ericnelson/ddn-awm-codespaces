@@ -1,4 +1,4 @@
 APP_MYELASTIC_READ_URL="http://34.235.138.126:8080"
 APP_MYELASTIC_WRITE_URL="http://34.235.138.126:8080"
-APP_MYTS_READ_URL="https://service-8ba481a8-324b-4780-9ab2-72533b3e733e-xoa32wu4oa-ue.a.run.app"
-APP_MYTS_WRITE_URL="https://service-8ba481a8-324b-4780-9ab2-72533b3e733e-xoa32wu4oa-ue.a.run.app"
+APP_MYTS_READ_URL="https://service-a84f1762-3596-4187-aab6-44203d06d124-avrnt5u67q-vp.a.run.app"
+APP_MYTS_WRITE_URL="https://service-a84f1762-3596-4187-aab6-44203d06d124-avrnt5u67q-vp.a.run.app"
