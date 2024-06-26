@@ -9,5 +9,6 @@
         "extensions": ["HasuraHQ.hasura"]
       }
     },
-    "postCreateCommand": "curl -L https://graphql-engine-cdn.hasura.io/ddn/cli/v1/get.sh | bash && code README.md"
+    "postCreateCommand": "curl -L https://graphql-engine-cdn.hasura.io/ddn/cli/v2/get.sh | VERSION=2024.06.06 bash && code README.md"
+    
   }
