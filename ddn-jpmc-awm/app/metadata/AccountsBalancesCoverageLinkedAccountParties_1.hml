@@ -1,0 +1,328 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: AccountEmployeeCoverage_1
+  fields:
+    - name: accountEmployeeRelationPurposeCode
+      type: Text_1!
+    - name: accountEmployeeRelationPurposeDescription
+      type: Text_1!
+    - name: accountEmployeeRelationStartDate
+      type: Date_1!
+    - name: employeeFullName
+      type: Text_1!
+    - name: employeeRoleIdentifier
+      type: Text_1!
+    - name: employeeRoleName
+      type: Text_1!
+    - name: employeeStandardIdentifier
+      type: Text_1!
+  graphql:
+    typeName: App_AccountEmployeeCoverage1
+    inputTypeName: App_AccountEmployeeCoverage1Input
+  dataConnectorTypeMapping:
+    - dataConnectorName: elastic_connector
+      dataConnectorObjectType: accountEmployeeCoverage
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: AccountEmployeeCoverage_1
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - accountEmployeeRelationPurposeCode
+          - accountEmployeeRelationPurposeDescription
+          - accountEmployeeRelationStartDate
+          - employeeFullName
+          - employeeRoleIdentifier
+          - employeeRoleName
+          - employeeStandardIdentifier
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: AccountCoverage_1
+  fields:
+    - name: accountEmployeeCoverage
+      type: "[AccountEmployeeCoverage_1!]!"
+    - name: bookingBranchIdentifier
+      type: Text_1!
+    - name: bookingBranchName
+      type: Text_1!
+    - name: businessSystemCode
+      type: Text_1!
+    - name: externalAccountIdentifier
+      type: Text_1!
+  graphql:
+    typeName: App_AccountCoverage1
+    inputTypeName: App_AccountCoverage1Input
+  dataConnectorTypeMapping:
+    - dataConnectorName: elastic_connector
+      dataConnectorObjectType: accountCoverage
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: AccountCoverage_1
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - accountEmployeeCoverage
+          - bookingBranchIdentifier
+          - bookingBranchName
+          - businessSystemCode
+          - externalAccountIdentifier
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: AccountParties_1
+  fields:
+    - name: alternateAccountIdentifier
+      type: Text_1!
+    - name: bookingBranchIdentifier
+      type: Text_1!
+    - name: businessSystemCode
+      type: Text_1!
+    - name: gwmIdentifier
+      type: Text_1!
+    - name: partyRoleIdentifier
+      type: Text_1!
+  graphql:
+    typeName: App_AccountParties1
+    inputTypeName: App_AccountParties1Input
+  dataConnectorTypeMapping:
+    - dataConnectorName: elastic_connector
+      dataConnectorObjectType: accountParties
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: AccountParties_1
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - alternateAccountIdentifier
+          - bookingBranchIdentifier
+          - businessSystemCode
+          - gwmIdentifier
+          - partyRoleIdentifier
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: AccountSummary_1
+  fields:
+    - name: accountNumber
+      type: Text_1!
+    - name: accountSummaryDt
+      type: Date_1!
+    - name: baseTradedIntrinsicCashAmt
+      type: Float_2!
+    - name: baseTradedMarketValueAmt
+      type: Float_2!
+    - name: baseTradedTotalUnrealizedGainLossAmt
+      type: Float_2!
+    - name: businessSystemCd
+      type: Text_1!
+    - name: localTradedIntrinsicCashAmt
+      type: Float_2!
+    - name: localTradedMarketValueAmt
+      type: Float_2!
+    - name: localTradedTotalUnrealizedGainLossAmt
+      type: Float_2!
+    - name: usdTradedIntrinsicCashAmt
+      type: Float_2!
+    - name: usdTradedMarketValueAmt
+      type: Float_2!
+    - name: usdTradedTotalUnrealizedGainLossAmt
+      type: Float_2!
+  graphql:
+    typeName: App_AccountSummary1
+    inputTypeName: App_AccountSummary1Input
+  dataConnectorTypeMapping:
+    - dataConnectorName: elastic_connector
+      dataConnectorObjectType: accountSummary
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: AccountSummary_1
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - accountNumber
+          - accountSummaryDt
+          - baseTradedIntrinsicCashAmt
+          - baseTradedMarketValueAmt
+          - baseTradedTotalUnrealizedGainLossAmt
+          - businessSystemCd
+          - localTradedIntrinsicCashAmt
+          - localTradedMarketValueAmt
+          - localTradedTotalUnrealizedGainLossAmt
+          - usdTradedIntrinsicCashAmt
+          - usdTradedMarketValueAmt
+          - usdTradedTotalUnrealizedGainLossAmt
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CombinedFields_1
+  fields:
+    - name: accountCoverage
+      type: "[AccountCoverage_1!]!"
+    - name: accountParties
+      type: "[AccountParties_1!]!"
+    - name: accountSummary
+      type: "[AccountSummary_1!]!"
+    - name: alternateAccountIdentifier
+      type: Text_1!
+    - name: businessSystemCode
+      type: Text_1!
+    - name: productLevel1ClassificationName
+      type: Text_1!
+    - name: productLevel2ClassificationName
+      type: Text_1!
+    - name: productLevel3ClassificationName
+      type: Text_1!
+  graphql:
+    typeName: App_CombinedFields1
+    inputTypeName: App_CombinedFields1Input
+  dataConnectorTypeMapping:
+    - dataConnectorName: elastic_connector
+      dataConnectorObjectType: combinedFields
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CombinedFields_1
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - accountCoverage
+          - accountParties
+          - accountSummary
+          - alternateAccountIdentifier
+          - businessSystemCode
+          - productLevel1ClassificationName
+          - productLevel2ClassificationName
+          - productLevel3ClassificationName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: AccountsBalancesCoverageLinkedAccountParties_1
+  fields:
+    - name: id
+      type: Id_1!
+    - name: combinedFields
+      type: "[CombinedFields_1!]!"
+    - name: id_1
+      type: Text_1!
+  graphql:
+    typeName: App_AccountsBalancesCoverageLinkedAccountParties1
+    inputTypeName: App_AccountsBalancesCoverageLinkedAccountParties1Input
+  dataConnectorTypeMapping:
+    - dataConnectorName: elastic_connector
+      dataConnectorObjectType: accounts_balances_coverage-linked_account_parties
+      fieldMapping:
+        id:
+          column:
+            name: _id
+        combinedFields:
+          column:
+            name: combinedFields
+        id_1:
+          column:
+            name: id
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: AccountsBalancesCoverageLinkedAccountParties_1
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+          - combinedFields
+          - id_1
+
+---
+kind: ObjectBooleanExpressionType
+version: v1
+definition:
+  name: AccountsBalancesCoverageLinkedAccountPartiesBoolExp_1
+  objectType: AccountsBalancesCoverageLinkedAccountParties_1
+  dataConnectorName: elastic_connector
+  dataConnectorObjectType: accounts_balances_coverage-linked_account_parties
+  comparableFields:
+    - fieldName: id
+      operators:
+        enableAll: true
+    - fieldName: combinedFields
+      operators:
+        enableAll: true
+    - fieldName: id_1
+      operators:
+        enableAll: true
+  graphql:
+    typeName: App_AccountsBalancesCoverageLinkedAccountPartiesBoolExp1
+
+---
+kind: Model
+version: v1
+definition:
+  name: AccountsBalancesCoverageLinkedAccountParties_1
+  objectType: AccountsBalancesCoverageLinkedAccountParties_1
+  source:
+    dataConnectorName: elastic_connector
+    collection: accounts_balances_coverage-linked_account_parties
+  filterExpressionType: AccountsBalancesCoverageLinkedAccountPartiesBoolExp_1
+  orderableFields:
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: combinedFields
+      orderByDirections:
+        enableAll: true
+    - fieldName: id_1
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: app_accountsBalancesCoverageLinkedAccountParties1
+    selectUniques:
+      - queryRootField: app_accountsBalancesCoverageLinkedAccountParties1ById
+        uniqueIdentifier:
+          - id
+    orderByExpressionType: App_AccountsBalancesCoverageLinkedAccountParties1OrderBy
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: AccountsBalancesCoverageLinkedAccountParties_1
+  permissions:
+    - role: admin
+      select:
+        filter: null
+

@@ -1,0 +1,90 @@
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Id_1
+  graphql:
+    typeName: App_Id1
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Text_1
+  graphql:
+    typeName: App_Text1
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Date_1
+  graphql:
+    typeName: App_Date1
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Float_2
+  graphql:
+    typeName: App_Float2
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: elastic_connector
+  dataConnectorScalarType: _id
+  representation: Id_1
+  graphql:
+    comparisonExpressionTypeName: App_Id1ComparisonExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: elastic_connector
+  dataConnectorScalarType: text
+  representation: Text_1
+  graphql:
+    comparisonExpressionTypeName: App_Text1ComparisonExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: elastic_connector
+  dataConnectorScalarType: date
+  representation: Date_1
+  graphql:
+    comparisonExpressionTypeName: App_Date1ComparisonExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: elastic_connector
+  dataConnectorScalarType: float
+  representation: Float_2
+  graphql:
+    comparisonExpressionTypeName: App_Float2ComparisonExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Boolean_2
+  graphql:
+    typeName: App_Boolean2
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: elastic_connector
+  dataConnectorScalarType: boolean
+  representation: Boolean_2
+  graphql:
+    comparisonExpressionTypeName: App_Boolean2ComparisonExp
+

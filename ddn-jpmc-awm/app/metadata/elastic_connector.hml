@@ -1,0 +1,1151 @@
+kind: DataConnectorLink
+version: v1
+definition:
+  name: elastic_connector
+  url:
+    readWriteUrls:
+      read:
+        valueFromEnv: APP_ELASTIC_CONNECTOR_READ_URL
+      write:
+        valueFromEnv: APP_ELASTIC_CONNECTOR_WRITE_URL
+  schema:
+    version: v0.1
+    schema:
+      scalar_types:
+        _id:
+          representation:
+            type: string
+          aggregate_functions: {}
+          comparison_operators:
+            match:
+              type: custom
+              argument_type:
+                type: named
+                name: _id
+            match_phrase:
+              type: custom
+              argument_type:
+                type: named
+                name: _id
+            range:
+              type: custom
+              argument_type:
+                type: named
+                name: range
+            term:
+              type: equal
+            terms:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: _id
+        boolean:
+          representation:
+            type: boolean
+          aggregate_functions:
+            avg:
+              result_type:
+                type: named
+                name: integer
+            cardinality:
+              result_type:
+                type: named
+                name: integer
+            max:
+              result_type:
+                type: named
+                name: integer
+            min:
+              result_type:
+                type: named
+                name: integer
+            stats:
+              result_type:
+                type: named
+                name: stats
+            sum:
+              result_type:
+                type: named
+                name: integer
+            value_count:
+              result_type:
+                type: named
+                name: integer
+          comparison_operators:
+            match:
+              type: custom
+              argument_type:
+                type: named
+                name: boolean
+            match_phrase:
+              type: custom
+              argument_type:
+                type: named
+                name: boolean
+            range:
+              type: custom
+              argument_type:
+                type: named
+                name: range
+            term:
+              type: custom
+              argument_type:
+                type: named
+                name: boolean
+            terms:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: boolean
+        date:
+          representation:
+            type: string
+          aggregate_functions:
+            avg:
+              result_type:
+                type: named
+                name: long
+            cardinality:
+              result_type:
+                type: named
+                name: integer
+            max:
+              result_type:
+                type: named
+                name: long
+            min:
+              result_type:
+                type: named
+                name: long
+            stats:
+              result_type:
+                type: named
+                name: stats
+            sum:
+              result_type:
+                type: named
+                name: long
+            value_count:
+              result_type:
+                type: named
+                name: integer
+          comparison_operators:
+            match:
+              type: custom
+              argument_type:
+                type: named
+                name: date
+            match_phrase:
+              type: custom
+              argument_type:
+                type: named
+                name: date
+            range:
+              type: custom
+              argument_type:
+                type: named
+                name: date_range_query
+            term:
+              type: custom
+              argument_type:
+                type: named
+                name: date
+            terms:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: date
+        double:
+          representation:
+            type: number
+          aggregate_functions:
+            avg:
+              result_type:
+                type: named
+                name: double
+            cardinality:
+              result_type:
+                type: named
+                name: integer
+            max:
+              result_type:
+                type: named
+                name: double
+            min:
+              result_type:
+                type: named
+                name: double
+            stats:
+              result_type:
+                type: named
+                name: stats
+            sum:
+              result_type:
+                type: named
+                name: double
+            value_count:
+              result_type:
+                type: named
+                name: integer
+          comparison_operators:
+            match:
+              type: custom
+              argument_type:
+                type: named
+                name: double
+            match_phrase:
+              type: custom
+              argument_type:
+                type: named
+                name: double
+            range:
+              type: custom
+              argument_type:
+                type: named
+                name: range
+            term:
+              type: custom
+              argument_type:
+                type: named
+                name: double
+            terms:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: double
+        float:
+          representation:
+            type: number
+          aggregate_functions:
+            avg:
+              result_type:
+                type: named
+                name: float
+            cardinality:
+              result_type:
+                type: named
+                name: integer
+            max:
+              result_type:
+                type: named
+                name: float
+            min:
+              result_type:
+                type: named
+                name: float
+            stats:
+              result_type:
+                type: named
+                name: stats
+            sum:
+              result_type:
+                type: named
+                name: float
+            value_count:
+              result_type:
+                type: named
+                name: integer
+          comparison_operators:
+            match:
+              type: custom
+              argument_type:
+                type: named
+                name: float
+            match_phrase:
+              type: custom
+              argument_type:
+                type: named
+                name: float
+            range:
+              type: custom
+              argument_type:
+                type: named
+                name: range
+            term:
+              type: custom
+              argument_type:
+                type: named
+                name: float
+            terms:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: float
+        integer:
+          representation:
+            type: integer
+          aggregate_functions:
+            avg:
+              result_type:
+                type: named
+                name: integer
+            cardinality:
+              result_type:
+                type: named
+                name: integer
+            max:
+              result_type:
+                type: named
+                name: integer
+            min:
+              result_type:
+                type: named
+                name: integer
+            stats:
+              result_type:
+                type: named
+                name: stats
+            sum:
+              result_type:
+                type: named
+                name: integer
+            value_count:
+              result_type:
+                type: named
+                name: integer
+          comparison_operators:
+            match:
+              type: custom
+              argument_type:
+                type: named
+                name: integer
+            match_phrase:
+              type: custom
+              argument_type:
+                type: named
+                name: integer
+            range:
+              type: custom
+              argument_type:
+                type: named
+                name: range
+            term:
+              type: custom
+              argument_type:
+                type: named
+                name: integer
+            terms:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: integer
+        keyword:
+          representation:
+            type: string
+          aggregate_functions:
+            cardinality:
+              result_type:
+                type: named
+                name: integer
+            string_stats:
+              result_type:
+                type: named
+                name: string_stats
+            value_count:
+              result_type:
+                type: named
+                name: integer
+          comparison_operators:
+            match:
+              type: custom
+              argument_type:
+                type: named
+                name: keyword
+            match_bool_prefix:
+              type: custom
+              argument_type:
+                type: named
+                name: keyword
+            match_phrase:
+              type: custom
+              argument_type:
+                type: named
+                name: keyword
+            prefix:
+              type: custom
+              argument_type:
+                type: named
+                name: keyword
+            range:
+              type: custom
+              argument_type:
+                type: named
+                name: range
+            regexp:
+              type: custom
+              argument_type:
+                type: named
+                name: keyword
+            term:
+              type: custom
+              argument_type:
+                type: named
+                name: keyword
+            terms:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: keyword
+            wildcard:
+              type: custom
+              argument_type:
+                type: named
+                name: keyword
+        text:
+          representation:
+            type: string
+          aggregate_functions: {}
+          comparison_operators:
+            match:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            match_bool_prefix:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            match_phrase:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            match_phrase_prefix:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            prefix:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            range:
+              type: custom
+              argument_type:
+                type: named
+                name: range
+            regexp:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            term:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            terms:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: text
+            wildcard:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+      object_types:
+        accountCoverage:
+          fields:
+            accountEmployeeCoverage:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: accountEmployeeCoverage
+            bookingBranchIdentifier:
+              type:
+                type: named
+                name: text
+            bookingBranchName:
+              type:
+                type: named
+                name: text
+            businessSystemCode:
+              type:
+                type: named
+                name: text
+            externalAccountIdentifier:
+              type:
+                type: named
+                name: text
+        accountEmployeeCoverage:
+          fields:
+            accountEmployeeRelationPurposeCode:
+              type:
+                type: named
+                name: text
+            accountEmployeeRelationPurposeDescription:
+              type:
+                type: named
+                name: text
+            accountEmployeeRelationStartDate:
+              type:
+                type: named
+                name: date
+            employeeFullName:
+              type:
+                type: named
+                name: text
+            employeeRoleIdentifier:
+              type:
+                type: named
+                name: text
+            employeeRoleName:
+              type:
+                type: named
+                name: text
+            employeeStandardIdentifier:
+              type:
+                type: named
+                name: text
+        accountParties:
+          fields:
+            alternateAccountIdentifier:
+              type:
+                type: named
+                name: text
+            bookingBranchIdentifier:
+              type:
+                type: named
+                name: text
+            businessSystemCode:
+              type:
+                type: named
+                name: text
+            gwmIdentifier:
+              type:
+                type: named
+                name: text
+            partyRoleIdentifier:
+              type:
+                type: named
+                name: text
+        accountSummary:
+          fields:
+            accountNumber:
+              type:
+                type: named
+                name: text
+            accountSummaryDt:
+              type:
+                type: named
+                name: date
+            baseTradedIntrinsicCashAmt:
+              type:
+                type: named
+                name: float
+            baseTradedMarketValueAmt:
+              type:
+                type: named
+                name: float
+            baseTradedTotalUnrealizedGainLossAmt:
+              type:
+                type: named
+                name: float
+            businessSystemCd:
+              type:
+                type: named
+                name: text
+            localTradedIntrinsicCashAmt:
+              type:
+                type: named
+                name: float
+            localTradedMarketValueAmt:
+              type:
+                type: named
+                name: float
+            localTradedTotalUnrealizedGainLossAmt:
+              type:
+                type: named
+                name: float
+            usdTradedIntrinsicCashAmt:
+              type:
+                type: named
+                name: float
+            usdTradedMarketValueAmt:
+              type:
+                type: named
+                name: float
+            usdTradedTotalUnrealizedGainLossAmt:
+              type:
+                type: named
+                name: float
+        accounts_balances_coverage-linked_account_parties:
+          fields:
+            _id:
+              type:
+                type: named
+                name: _id
+            combinedFields:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: combinedFields
+            id:
+              type:
+                type: named
+                name: text
+        clientCoverage:
+          fields:
+            bookingBranchIdentifier:
+              type:
+                type: named
+                name: text
+            bookingBranchName:
+              type:
+                type: named
+                name: text
+            clientEmployeeCoverage:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: clientEmployeeCoverage
+            gwmIdentifier:
+              type:
+                type: named
+                name: text
+        clientEmployeeCoverage:
+          fields:
+            employeeFullName:
+              type:
+                type: named
+                name: text
+            employeeRoleIdentifier:
+              type:
+                type: named
+                name: text
+            employeeRoleName:
+              type:
+                type: named
+                name: text
+            employeeStandardIdentifier:
+              type:
+                type: named
+                name: text
+            partyEmpRelationshipEntryDate:
+              type:
+                type: named
+                name: date
+            partyEmpRelationshipPurposeCode:
+              type:
+                type: named
+                name: text
+            partyEmpRelationshipPurposeDescription:
+              type:
+                type: named
+                name: text
+        combinedFields:
+          fields:
+            accountCoverage:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: accountCoverage
+            accountParties:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: accountParties
+            accountSummary:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: accountSummary
+            alternateAccountIdentifier:
+              type:
+                type: named
+                name: text
+            businessSystemCode:
+              type:
+                type: named
+                name: text
+            productLevel1ClassificationName:
+              type:
+                type: named
+                name: text
+            productLevel2ClassificationName:
+              type:
+                type: named
+                name: text
+            productLevel3ClassificationName:
+              type:
+                type: named
+                name: text
+        companyName:
+          fields:
+            raw:
+              type:
+                type: named
+                name: text
+        date_range_query:
+          fields:
+            boost:
+              description: (Optional, float) Floating point number used to decrease or increase the relevance scores of a query. Defaults to 1.0.
+              type:
+                type: named
+                name: float
+            format:
+              description: (Optional, string) Date format used to convert date values in the query.
+              type:
+                type: named
+                name: keyword
+            gt:
+              description: (Optional) Greater than.
+              type:
+                type: named
+                name: double
+            gte:
+              description: (Optional) Greater than or equal.
+              type:
+                type: named
+                name: double
+            lt:
+              description: (Optional) Less than.
+              type:
+                type: named
+                name: double
+            lte:
+              description: (Optional) Less than or equal.
+              type:
+                type: named
+                name: double
+            time_zone:
+              description: (Optional, string) Coordinated Universal Time (UTC) offset or IANA time zone used to convert date values in the query to UTC.
+              type:
+                type: named
+                name: keyword
+        investmentObjectiveCode:
+          fields:
+            raw:
+              type:
+                type: named
+                name: text
+        investmentObjectiveName:
+          fields:
+            raw:
+              type:
+                type: named
+                name: text
+        modelStrategyName:
+          fields:
+            raw:
+              type:
+                type: named
+                name: text
+        party_accounts:
+          fields:
+            _id:
+              type:
+                type: named
+                name: _id
+            bookingBranchIdentifier:
+              type:
+                type: named
+                name: text
+            clientCoverage:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: clientCoverage
+            combinedFields:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: combinedFields
+            decisionMakerECI:
+              type:
+                type: named
+                name: text
+            dmGwmIdentifier:
+              type:
+                type: named
+                name: text
+            enterpriseCustomerIdentifier:
+              type:
+                type: named
+                name: text
+            firstName:
+              type:
+                type: named
+                name: text
+            gwmIdentifier:
+              type:
+                type: named
+                name: text
+            id:
+              type:
+                type: named
+                name: text
+            lastName:
+              type:
+                type: named
+                name: text
+            partyAccounts:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: partyAccounts
+        partyAccounts:
+          fields:
+            alternateAccountIdentifier:
+              type:
+                type: named
+                name: text
+            bookingBranchIdentifier:
+              type:
+                type: named
+                name: text
+            businessSystemCode:
+              type:
+                type: named
+                name: text
+            gwmIdentifier:
+              type:
+                type: named
+                name: text
+            partyRoleIdentifier:
+              type:
+                type: named
+                name: text
+        positions:
+          fields:
+            accountBaseCurrency:
+              type:
+                type: named
+                name: text
+            accountNumber:
+              type:
+                type: named
+                name: text
+            assetClass:
+              type:
+                type: named
+                name: text
+            baseAdjustedCostAmount:
+              type:
+                type: named
+                name: float
+            baseExpectedIncomeAmount:
+              type:
+                type: named
+                name: float
+            baseMarketPrice:
+              type:
+                type: named
+                name: float
+            baseSettledMarketValueAmount:
+              type:
+                type: named
+                name: float
+            baseTradedMarketValueAmount:
+              type:
+                type: named
+                name: float
+            companyName:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: companyName
+            instrumentCode:
+              type:
+                type: named
+                name: text
+        range:
+          fields:
+            boost:
+              description: (Optional, float) Floating point number used to decrease or increase the relevance scores of a query. Defaults to 1.0.
+              type:
+                type: named
+                name: float
+            gt:
+              description: (Optional) Greater than.
+              type:
+                type: named
+                name: double
+            gte:
+              description: (Optional) Greater than or equal.
+              type:
+                type: named
+                name: double
+            lt:
+              description: (Optional) Less than.
+              type:
+                type: named
+                name: double
+            lte:
+              description: (Optional) Less than or equal.
+              type:
+                type: named
+                name: double
+        scpp-raw-accounts-position-instrument-transactions-taxlots:
+          fields:
+            _id:
+              type:
+                type: named
+                name: _id
+            accountBaseCurrency:
+              type:
+                type: named
+                name: text
+            accountBusinessSystem:
+              type:
+                type: named
+                name: text
+            accountLobCode:
+              type:
+                type: named
+                name: text
+            accountNumber:
+              type:
+                type: named
+                name: text
+            accountServiceCode:
+              type:
+                type: named
+                name: text
+            accountStatusCode:
+              type:
+                type: named
+                name: text
+            accountStatusName:
+              type:
+                type: named
+                name: text
+            accountTypeGroup:
+              type:
+                type: named
+                name: text
+            areaNodeIdentifiers:
+              type:
+                type: named
+                name: text
+            branchCode:
+              type:
+                type: named
+                name: text
+            branchName:
+              type:
+                type: named
+                name: text
+            businessDate:
+              type:
+                type: named
+                name: text
+            businessSystemCode:
+              type:
+                type: named
+                name: text
+            cashPercentage:
+              type:
+                type: named
+                name: float
+            cbosOrDfiAccount:
+              type:
+                type: named
+                name: boolean
+            corporateLobGroupCode:
+              type:
+                type: named
+                name: text
+            costCenterCodes:
+              type:
+                type: named
+                name: text
+            coverageUsers:
+              type:
+                type: named
+                name: text
+            cusipCodes:
+              type:
+                type: named
+                name: text
+            dmEciIdentifier:
+              type:
+                type: named
+                name: text
+            eciIdentifier:
+              type:
+                type: named
+                name: text
+            financialAdvisorSid:
+              type:
+                type: named
+                name: text
+            gwmIdentifier:
+              type:
+                type: named
+                name: text
+            instrumentCodes:
+              type:
+                type: named
+                name: text
+            investmentObjectiveCode:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: investmentObjectiveCode
+            investmentObjectiveName:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: investmentObjectiveName
+            isinCodes:
+              type:
+                type: named
+                name: text
+            largeCashPositionAlert:
+              type:
+                type: named
+                name: boolean
+            marketNodeIdentifiers:
+              type:
+                type: named
+                name: text
+            modelStrategyName:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: modelStrategyName
+            occdNumber:
+              type:
+                type: named
+                name: text
+            partyTypeName:
+              type:
+                type: named
+                name: text
+            positions:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: positions
+            transactions:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: transactions
+        stats:
+          fields:
+            avg:
+              type:
+                type: named
+                name: double
+            count:
+              type:
+                type: named
+                name: integer
+            max:
+              type:
+                type: named
+                name: double
+            min:
+              type:
+                type: named
+                name: double
+            sum:
+              type:
+                type: named
+                name: double
+        string_stats:
+          fields:
+            avg_length:
+              type:
+                type: named
+                name: double
+            count:
+              type:
+                type: named
+                name: integer
+            entropy:
+              type:
+                type: named
+                name: double
+            max_length:
+              type:
+                type: named
+                name: integer
+            min_length:
+              type:
+                type: named
+                name: integer
+        transactions:
+          fields:
+            accountNumber:
+              type:
+                type: named
+                name: text
+            baseGrossAmount:
+              type:
+                type: named
+                name: float
+            instrumentCode:
+              type:
+                type: named
+                name: text
+      collections:
+        - name: accounts_balances_coverage-linked_account_parties
+          arguments: {}
+          type: accounts_balances_coverage-linked_account_parties
+          uniqueness_constraints:
+            accounts_balances_coverage-linked_account_parties_by_id:
+              unique_columns:
+                - _id
+          foreign_keys: {}
+        - name: party_accounts
+          arguments: {}
+          type: party_accounts
+          uniqueness_constraints:
+            party_accounts_by_id:
+              unique_columns:
+                - _id
+          foreign_keys: {}
+        - name: scpp-raw-accounts-position-instrument-transactions-taxlots
+          arguments: {}
+          type: scpp-raw-accounts-position-instrument-transactions-taxlots
+          uniqueness_constraints:
+            scpp-raw-accounts-position-instrument-transactions-taxlots_by_id:
+              unique_columns:
+                - _id
+          foreign_keys: {}
+      functions: []
+      procedures: []
+    capabilities:
+      version: 0.1.4
+      capabilities:
+        query:
+          aggregates: {}
+          variables: {}
+        mutation: {}

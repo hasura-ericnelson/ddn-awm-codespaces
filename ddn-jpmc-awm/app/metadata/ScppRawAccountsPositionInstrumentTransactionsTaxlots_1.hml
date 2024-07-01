@@ -1,0 +1,675 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InvestmentObjectiveCode_1
+  fields:
+    - name: raw
+      type: Text_1!
+  graphql:
+    typeName: App_InvestmentObjectiveCode1
+    inputTypeName: App_InvestmentObjectiveCode1Input
+  dataConnectorTypeMapping:
+    - dataConnectorName: elastic_connector
+      dataConnectorObjectType: investmentObjectiveCode
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InvestmentObjectiveCode_1
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - raw
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InvestmentObjectiveName_1
+  fields:
+    - name: raw
+      type: Text_1!
+  graphql:
+    typeName: App_InvestmentObjectiveName1
+    inputTypeName: App_InvestmentObjectiveName1Input
+  dataConnectorTypeMapping:
+    - dataConnectorName: elastic_connector
+      dataConnectorObjectType: investmentObjectiveName
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InvestmentObjectiveName_1
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - raw
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ModelStrategyName_1
+  fields:
+    - name: raw
+      type: Text_1!
+  graphql:
+    typeName: App_ModelStrategyName1
+    inputTypeName: App_ModelStrategyName1Input
+  dataConnectorTypeMapping:
+    - dataConnectorName: elastic_connector
+      dataConnectorObjectType: modelStrategyName
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ModelStrategyName_1
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - raw
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CompanyName_1
+  fields:
+    - name: raw
+      type: Text_1!
+  graphql:
+    typeName: App_CompanyName1
+    inputTypeName: App_CompanyName1Input
+  dataConnectorTypeMapping:
+    - dataConnectorName: elastic_connector
+      dataConnectorObjectType: companyName
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CompanyName_1
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - raw
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Positions_1
+  fields:
+    - name: accountBaseCurrency
+      type: Text_1!
+    - name: accountNumber
+      type: Text_1!
+    - name: assetClass
+      type: Text_1!
+    - name: baseAdjustedCostAmount
+      type: Float_2!
+    - name: baseExpectedIncomeAmount
+      type: Float_2!
+    - name: baseMarketPrice
+      type: Float_2!
+    - name: baseSettledMarketValueAmount
+      type: Float_2!
+    - name: baseTradedMarketValueAmount
+      type: Float_2!
+    - name: companyName
+      type: "[CompanyName_1!]!"
+    - name: instrumentCode
+      type: Text_1!
+  graphql:
+    typeName: App_Positions1
+    inputTypeName: App_Positions1Input
+  dataConnectorTypeMapping:
+    - dataConnectorName: elastic_connector
+      dataConnectorObjectType: positions
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Positions_1
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - accountBaseCurrency
+          - accountNumber
+          - assetClass
+          - baseAdjustedCostAmount
+          - baseExpectedIncomeAmount
+          - baseMarketPrice
+          - baseSettledMarketValueAmount
+          - baseTradedMarketValueAmount
+          - companyName
+          - instrumentCode
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Transactions_1
+  fields:
+    - name: accountNumber
+      type: Text_1!
+    - name: baseGrossAmount
+      type: Float_2!
+    - name: instrumentCode
+      type: Text_1!
+  graphql:
+    typeName: App_Transactions1
+    inputTypeName: App_Transactions1Input
+  dataConnectorTypeMapping:
+    - dataConnectorName: elastic_connector
+      dataConnectorObjectType: transactions
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Transactions_1
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - accountNumber
+          - baseGrossAmount
+          - instrumentCode
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ScppRawAccountsPositionInstrumentTransactionsTaxlots_1
+  fields:
+    - name: id
+      type: Id_1!
+    - name: accountBaseCurrency
+      type: Text_1!
+    - name: accountBusinessSystem
+      type: Text_1!
+    - name: accountLobCode
+      type: Text_1!
+    - name: accountNumber
+      type: Text_1!
+    - name: accountServiceCode
+      type: Text_1!
+    - name: accountStatusCode
+      type: Text_1!
+    - name: accountStatusName
+      type: Text_1!
+    - name: accountTypeGroup
+      type: Text_1!
+    - name: areaNodeIdentifiers
+      type: Text_1!
+    - name: branchCode
+      type: Text_1!
+    - name: branchName
+      type: Text_1!
+    - name: businessDate
+      type: Text_1!
+    - name: businessSystemCode
+      type: Text_1!
+    - name: cashPercentage
+      type: Float_2!
+    - name: cbosOrDfiAccount
+      type: Boolean_2!
+    - name: corporateLobGroupCode
+      type: Text_1!
+    - name: costCenterCodes
+      type: Text_1!
+    - name: coverageUsers
+      type: Text_1!
+    - name: cusipCodes
+      type: Text_1!
+    - name: dmEciIdentifier
+      type: Text_1!
+    - name: eciIdentifier
+      type: Text_1!
+    - name: financialAdvisorSid
+      type: Text_1!
+    - name: gwmIdentifier
+      type: Text_1!
+    - name: instrumentCodes
+      type: Text_1!
+    - name: investmentObjectiveCode
+      type: "[InvestmentObjectiveCode_1!]!"
+    - name: investmentObjectiveName
+      type: "[InvestmentObjectiveName_1!]!"
+    - name: isinCodes
+      type: Text_1!
+    - name: largeCashPositionAlert
+      type: Boolean_2!
+    - name: marketNodeIdentifiers
+      type: Text_1!
+    - name: modelStrategyName
+      type: "[ModelStrategyName_1!]!"
+    - name: occdNumber
+      type: Text_1!
+    - name: partyTypeName
+      type: Text_1!
+    - name: positions
+      type: "[Positions_1!]!"
+    - name: transactions
+      type: "[Transactions_1!]!"
+  graphql:
+    typeName: App_ScppRawAccountsPositionInstrumentTransactionsTaxlots1
+    inputTypeName: App_ScppRawAccountsPositionInstrumentTransactionsTaxlots1Input
+  dataConnectorTypeMapping:
+    - dataConnectorName: elastic_connector
+      dataConnectorObjectType: scpp-raw-accounts-position-instrument-transactions-taxlots
+      fieldMapping:
+        id:
+          column:
+            name: _id
+        accountBaseCurrency:
+          column:
+            name: accountBaseCurrency
+        accountBusinessSystem:
+          column:
+            name: accountBusinessSystem
+        accountLobCode:
+          column:
+            name: accountLobCode
+        accountNumber:
+          column:
+            name: accountNumber
+        accountServiceCode:
+          column:
+            name: accountServiceCode
+        accountStatusCode:
+          column:
+            name: accountStatusCode
+        accountStatusName:
+          column:
+            name: accountStatusName
+        accountTypeGroup:
+          column:
+            name: accountTypeGroup
+        areaNodeIdentifiers:
+          column:
+            name: areaNodeIdentifiers
+        branchCode:
+          column:
+            name: branchCode
+        branchName:
+          column:
+            name: branchName
+        businessDate:
+          column:
+            name: businessDate
+        businessSystemCode:
+          column:
+            name: businessSystemCode
+        cashPercentage:
+          column:
+            name: cashPercentage
+        cbosOrDfiAccount:
+          column:
+            name: cbosOrDfiAccount
+        corporateLobGroupCode:
+          column:
+            name: corporateLobGroupCode
+        costCenterCodes:
+          column:
+            name: costCenterCodes
+        coverageUsers:
+          column:
+            name: coverageUsers
+        cusipCodes:
+          column:
+            name: cusipCodes
+        dmEciIdentifier:
+          column:
+            name: dmEciIdentifier
+        eciIdentifier:
+          column:
+            name: eciIdentifier
+        financialAdvisorSid:
+          column:
+            name: financialAdvisorSid
+        gwmIdentifier:
+          column:
+            name: gwmIdentifier
+        instrumentCodes:
+          column:
+            name: instrumentCodes
+        investmentObjectiveCode:
+          column:
+            name: investmentObjectiveCode
+        investmentObjectiveName:
+          column:
+            name: investmentObjectiveName
+        isinCodes:
+          column:
+            name: isinCodes
+        largeCashPositionAlert:
+          column:
+            name: largeCashPositionAlert
+        marketNodeIdentifiers:
+          column:
+            name: marketNodeIdentifiers
+        modelStrategyName:
+          column:
+            name: modelStrategyName
+        occdNumber:
+          column:
+            name: occdNumber
+        partyTypeName:
+          column:
+            name: partyTypeName
+        positions:
+          column:
+            name: positions
+        transactions:
+          column:
+            name: transactions
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ScppRawAccountsPositionInstrumentTransactionsTaxlots_1
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+          - accountBaseCurrency
+          - accountBusinessSystem
+          - accountLobCode
+          - accountNumber
+          - accountServiceCode
+          - accountStatusCode
+          - accountStatusName
+          - accountTypeGroup
+          - areaNodeIdentifiers
+          - branchCode
+          - branchName
+          - businessDate
+          - businessSystemCode
+          - cashPercentage
+          - cbosOrDfiAccount
+          - corporateLobGroupCode
+          - costCenterCodes
+          - coverageUsers
+          - cusipCodes
+          - dmEciIdentifier
+          - eciIdentifier
+          - financialAdvisorSid
+          - gwmIdentifier
+          - instrumentCodes
+          - investmentObjectiveCode
+          - investmentObjectiveName
+          - isinCodes
+          - largeCashPositionAlert
+          - marketNodeIdentifiers
+          - modelStrategyName
+          - occdNumber
+          - partyTypeName
+          - positions
+          - transactions
+
+---
+kind: ObjectBooleanExpressionType
+version: v1
+definition:
+  name: ScppRawAccountsPositionInstrumentTransactionsTaxlotsBoolExp_1
+  objectType: ScppRawAccountsPositionInstrumentTransactionsTaxlots_1
+  dataConnectorName: elastic_connector
+  dataConnectorObjectType: scpp-raw-accounts-position-instrument-transactions-taxlots
+  comparableFields:
+    - fieldName: id
+      operators:
+        enableAll: true
+    - fieldName: accountBaseCurrency
+      operators:
+        enableAll: true
+    - fieldName: accountBusinessSystem
+      operators:
+        enableAll: true
+    - fieldName: accountLobCode
+      operators:
+        enableAll: true
+    - fieldName: accountNumber
+      operators:
+        enableAll: true
+    - fieldName: accountServiceCode
+      operators:
+        enableAll: true
+    - fieldName: accountStatusCode
+      operators:
+        enableAll: true
+    - fieldName: accountStatusName
+      operators:
+        enableAll: true
+    - fieldName: accountTypeGroup
+      operators:
+        enableAll: true
+    - fieldName: areaNodeIdentifiers
+      operators:
+        enableAll: true
+    - fieldName: branchCode
+      operators:
+        enableAll: true
+    - fieldName: branchName
+      operators:
+        enableAll: true
+    - fieldName: businessDate
+      operators:
+        enableAll: true
+    - fieldName: businessSystemCode
+      operators:
+        enableAll: true
+    - fieldName: cashPercentage
+      operators:
+        enableAll: true
+    - fieldName: cbosOrDfiAccount
+      operators:
+        enableAll: true
+    - fieldName: corporateLobGroupCode
+      operators:
+        enableAll: true
+    - fieldName: costCenterCodes
+      operators:
+        enableAll: true
+    - fieldName: coverageUsers
+      operators:
+        enableAll: true
+    - fieldName: cusipCodes
+      operators:
+        enableAll: true
+    - fieldName: dmEciIdentifier
+      operators:
+        enableAll: true
+    - fieldName: eciIdentifier
+      operators:
+        enableAll: true
+    - fieldName: financialAdvisorSid
+      operators:
+        enableAll: true
+    - fieldName: gwmIdentifier
+      operators:
+        enableAll: true
+    - fieldName: instrumentCodes
+      operators:
+        enableAll: true
+    - fieldName: investmentObjectiveCode
+      operators:
+        enableAll: true
+    - fieldName: investmentObjectiveName
+      operators:
+        enableAll: true
+    - fieldName: isinCodes
+      operators:
+        enableAll: true
+    - fieldName: largeCashPositionAlert
+      operators:
+        enableAll: true
+    - fieldName: marketNodeIdentifiers
+      operators:
+        enableAll: true
+    - fieldName: modelStrategyName
+      operators:
+        enableAll: true
+    - fieldName: occdNumber
+      operators:
+        enableAll: true
+    - fieldName: partyTypeName
+      operators:
+        enableAll: true
+    - fieldName: positions
+      operators:
+        enableAll: true
+    - fieldName: transactions
+      operators:
+        enableAll: true
+  graphql:
+    typeName: App_ScppRawAccountsPositionInstrumentTransactionsTaxlotsBoolExp1
+
+---
+kind: Model
+version: v1
+definition:
+  name: ScppRawAccountsPositionInstrumentTransactionsTaxlots_1
+  objectType: ScppRawAccountsPositionInstrumentTransactionsTaxlots_1
+  source:
+    dataConnectorName: elastic_connector
+    collection: scpp-raw-accounts-position-instrument-transactions-taxlots
+  filterExpressionType: ScppRawAccountsPositionInstrumentTransactionsTaxlotsBoolExp_1
+  orderableFields:
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: accountBaseCurrency
+      orderByDirections:
+        enableAll: true
+    - fieldName: accountBusinessSystem
+      orderByDirections:
+        enableAll: true
+    - fieldName: accountLobCode
+      orderByDirections:
+        enableAll: true
+    - fieldName: accountNumber
+      orderByDirections:
+        enableAll: true
+    - fieldName: accountServiceCode
+      orderByDirections:
+        enableAll: true
+    - fieldName: accountStatusCode
+      orderByDirections:
+        enableAll: true
+    - fieldName: accountStatusName
+      orderByDirections:
+        enableAll: true
+    - fieldName: accountTypeGroup
+      orderByDirections:
+        enableAll: true
+    - fieldName: areaNodeIdentifiers
+      orderByDirections:
+        enableAll: true
+    - fieldName: branchCode
+      orderByDirections:
+        enableAll: true
+    - fieldName: branchName
+      orderByDirections:
+        enableAll: true
+    - fieldName: businessDate
+      orderByDirections:
+        enableAll: true
+    - fieldName: businessSystemCode
+      orderByDirections:
+        enableAll: true
+    - fieldName: cashPercentage
+      orderByDirections:
+        enableAll: true
+    - fieldName: cbosOrDfiAccount
+      orderByDirections:
+        enableAll: true
+    - fieldName: corporateLobGroupCode
+      orderByDirections:
+        enableAll: true
+    - fieldName: costCenterCodes
+      orderByDirections:
+        enableAll: true
+    - fieldName: coverageUsers
+      orderByDirections:
+        enableAll: true
+    - fieldName: cusipCodes
+      orderByDirections:
+        enableAll: true
+    - fieldName: dmEciIdentifier
+      orderByDirections:
+        enableAll: true
+    - fieldName: eciIdentifier
+      orderByDirections:
+        enableAll: true
+    - fieldName: financialAdvisorSid
+      orderByDirections:
+        enableAll: true
+    - fieldName: gwmIdentifier
+      orderByDirections:
+        enableAll: true
+    - fieldName: instrumentCodes
+      orderByDirections:
+        enableAll: true
+    - fieldName: investmentObjectiveCode
+      orderByDirections:
+        enableAll: true
+    - fieldName: investmentObjectiveName
+      orderByDirections:
+        enableAll: true
+    - fieldName: isinCodes
+      orderByDirections:
+        enableAll: true
+    - fieldName: largeCashPositionAlert
+      orderByDirections:
+        enableAll: true
+    - fieldName: marketNodeIdentifiers
+      orderByDirections:
+        enableAll: true
+    - fieldName: modelStrategyName
+      orderByDirections:
+        enableAll: true
+    - fieldName: occdNumber
+      orderByDirections:
+        enableAll: true
+    - fieldName: partyTypeName
+      orderByDirections:
+        enableAll: true
+    - fieldName: positions
+      orderByDirections:
+        enableAll: true
+    - fieldName: transactions
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: app_scppRawAccountsPositionInstrumentTransactionsTaxlots1
+    selectUniques:
+      - queryRootField: app_scppRawAccountsPositionInstrumentTransactionsTaxlots1ById
+        uniqueIdentifier:
+          - id
+    orderByExpressionType: App_ScppRawAccountsPositionInstrumentTransactionsTaxlots1OrderBy
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ScppRawAccountsPositionInstrumentTransactionsTaxlots_1
+  permissions:
+    - role: admin
+      select:
+        filter: null
+
