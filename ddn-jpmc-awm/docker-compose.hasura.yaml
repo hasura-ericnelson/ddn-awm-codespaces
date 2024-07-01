@@ -1,3 +1,6 @@
+include:
+  - app/connector/myts/docker-compose.myts.yaml
+  - app/connector/mymongo/docker-compose.mymongo.yaml
 services:
   auth_hook:
     image: ghcr.io/hasura/v3-dev-auth-webhook

@@ -1,0 +1,47 @@
+{
+  "name": "AccountPositionTransaction",
+  "collections": {
+    "AccountPositionTransaction": {
+      "type": "AccountPositionTransaction"
+    }
+  },
+  "objectTypes": {
+    "AccountPositionTransaction": {
+      "fields": {
+        "_id": {
+          "type": {
+            "scalar": "objectId"
+          }
+        },
+        "accountId": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "businessSystemCode": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "owner": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "txDate": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

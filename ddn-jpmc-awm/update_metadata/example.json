@@ -1,0 +1,103 @@
+[
+  {
+    "kind": "BooleanExpressionType",
+    "version": "v1",
+    "definition": {
+      "name": "institution_bool_exp",
+      "operand": {
+        "object": {
+          "type": "institution",
+          "comparableFields": [
+            {
+              "fieldName": "id",
+              "booleanExpressionType": "int_bool_exp"
+            },
+            {
+              "fieldName": "name",
+              "booleanExpressionType": "string_bool_exp"
+            },
+            {
+              "fieldName": "location",
+              "booleanExpressionType": "location_bool_exp"
+            }
+          ],
+          "comparableRelationships": []
+        }
+      },
+      "logicalOperators": {
+        "enable": true
+      },
+      "isNull": {
+        "enable": true
+      },
+      "graphql": {
+        "typeName": "InstitutionBoolExp"
+      }
+    }
+  },
+  {
+    "kind": "ObjectType",
+    "version": "v1",
+    "definition": {
+      "name": "institution",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Int!"
+        },
+        {
+          "name": "name",
+          "type": "String!"
+        },
+        {
+          "name": "location",
+          "type": "location"
+        },
+        {
+          "name": "staff",
+          "type": "[staff_member]"
+        },
+        {
+          "name": "departments",
+          "type": "[String]"
+        }
+      ],
+      "graphql": {
+        "typeName": "Institution"
+      },
+      "dataConnectorTypeMapping": [
+        {
+          "dataConnectorName": "db",
+          "dataConnectorObjectType": "institution",
+          "fieldMapping": {
+            "id": {
+              "column": {
+                "name": "id"
+              }
+            },
+            "name": {
+              "column": {
+                "name": "name"
+              }
+            },
+            "location": {
+              "column": {
+                "name": "location"
+              }
+            },
+            "staff": {
+              "column": {
+                "name": "staff"
+              }
+            },
+            "departments": {
+              "column": {
+                "name": "departments"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+]

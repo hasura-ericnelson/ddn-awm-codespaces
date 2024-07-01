@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "engine"
+version = "0.1.0"
+description = ""
+authors = ["Brandon Martin <brandon@codedmart.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+aggregations = "aggregations.main:main"

@@ -326,3 +326,20 @@ definition:
       select:
         filter: null
 
+---
+kind: Relationship
+version: v1
+definition:
+  name: AccountPositionTransactions
+  sourceType: AccountsBalancesCoverageLinkedAccountParties
+  target:
+    model:
+      name: AccountPositionTransaction
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: id
+      target:
+        modelField:
+          - fieldName: accountId

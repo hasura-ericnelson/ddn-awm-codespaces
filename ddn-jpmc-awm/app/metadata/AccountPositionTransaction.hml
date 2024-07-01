@@ -1,0 +1,143 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: AccountPositionTransaction
+  fields:
+    - name: id
+      type: ObjectId!
+    - name: accountId
+      type: String
+    - name: businessSystemCode
+      type: String
+    - name: owner
+      type: String
+    - name: txDate
+      type: String
+  graphql:
+    typeName: App_AccountPositionTransaction
+    inputTypeName: App_AccountPositionTransactionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mymongo
+      dataConnectorObjectType: AccountPositionTransaction
+      fieldMapping:
+        id:
+          column:
+            name: _id
+        accountId:
+          column:
+            name: accountId
+        businessSystemCode:
+          column:
+            name: businessSystemCode
+        owner:
+          column:
+            name: owner
+        txDate:
+          column:
+            name: txDate
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: AccountPositionTransaction
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+          - accountId
+          - businessSystemCode
+          - owner
+          - txDate
+
+---
+kind: ObjectBooleanExpressionType
+version: v1
+definition:
+  name: AccountPositionTransactionBoolExp
+  objectType: AccountPositionTransaction
+  dataConnectorName: mymongo
+  dataConnectorObjectType: AccountPositionTransaction
+  comparableFields:
+    - fieldName: id
+      operators:
+        enableAll: true
+    - fieldName: accountId
+      operators:
+        enableAll: true
+    - fieldName: businessSystemCode
+      operators:
+        enableAll: true
+    - fieldName: owner
+      operators:
+        enableAll: true
+    - fieldName: txDate
+      operators:
+        enableAll: true
+  graphql:
+    typeName: App_AccountPositionTransactionBoolExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: AccountPositionTransaction
+  objectType: AccountPositionTransaction
+  source:
+    dataConnectorName: mymongo
+    collection: AccountPositionTransaction
+  filterExpressionType: AccountPositionTransactionBoolExp
+  orderableFields:
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: accountId
+      orderByDirections:
+        enableAll: true
+    - fieldName: businessSystemCode
+      orderByDirections:
+        enableAll: true
+    - fieldName: owner
+      orderByDirections:
+        enableAll: true
+    - fieldName: txDate
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: app_accountPositionTransaction
+    selectUniques:
+      - queryRootField: app_accountPositionTransactionById
+        uniqueIdentifier:
+          - id
+    orderByExpressionType: App_AccountPositionTransactionOrderBy
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: AccountPositionTransaction
+  permissions:
+    - role: admin
+      select:
+        filter: null
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: AccountsBalancesCoverageLinkedAccountParty
+  sourceType: AccountPositionTransaction
+  target:
+    model:
+      name: AccountsBalancesCoverageLinkedAccountParties
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: accountId
+      target:
+        modelField:
+          - fieldName: id

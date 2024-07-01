@@ -1,0 +1,80 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ScppPositions
+  description: Object type for collection SCPP-positions
+  fields:
+    - name: id
+      type: ObjectId!
+      description: primary key _id
+  graphql:
+    typeName: App_ScppPositions
+    inputTypeName: App_ScppPositionsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mymongo
+      dataConnectorObjectType: SCPP-positions
+      fieldMapping:
+        id:
+          column:
+            name: _id
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ScppPositions
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+
+---
+kind: ObjectBooleanExpressionType
+version: v1
+definition:
+  name: ScppPositionsBoolExp
+  objectType: ScppPositions
+  dataConnectorName: mymongo
+  dataConnectorObjectType: SCPP-positions
+  comparableFields:
+    - fieldName: id
+      operators:
+        enableAll: true
+  graphql:
+    typeName: App_ScppPositionsBoolExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: ScppPositions
+  objectType: ScppPositions
+  source:
+    dataConnectorName: mymongo
+    collection: SCPP-positions
+  filterExpressionType: ScppPositionsBoolExp
+  orderableFields:
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: app_scppPositions
+    selectUniques:
+      - queryRootField: app_scppPositionsById
+        uniqueIdentifier:
+          - id
+    orderByExpressionType: App_ScppPositionsOrderBy
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ScppPositions
+  permissions:
+    - role: admin
+      select:
+        filter: null
+

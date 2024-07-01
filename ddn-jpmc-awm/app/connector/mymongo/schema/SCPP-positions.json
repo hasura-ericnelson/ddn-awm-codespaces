@@ -1,0 +1,21 @@
+{
+  "name": "SCPP-positions",
+  "collections": {
+    "SCPP-positions": {
+      "type": "SCPP-positions"
+    }
+  },
+  "objectTypes": {
+    "SCPP-positions": {
+      "fields": {
+        "_id": {
+          "type": {
+            "scalar": "objectId"
+          },
+          "description": "primary key _id"
+        }
+      },
+      "description": "Object type for collection SCPP-positions"
+    }
+  }
+}

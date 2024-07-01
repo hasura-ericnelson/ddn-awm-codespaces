@@ -2,3 +2,5 @@ APP_MYELASTIC_READ_URL=http://34.235.138.126:8080
 APP_MYELASTIC_WRITE_URL=http://34.235.138.126:8080
 APP_MYTS_READ_URL=http://local.hasura.dev:8083
 APP_MYTS_WRITE_URL=http://local.hasura.dev:8083
+APP_MYMONGO_READ_URL=http://local.hasura.dev:8084
+APP_MYMONGO_WRITE_URL=http://local.hasura.dev:8084

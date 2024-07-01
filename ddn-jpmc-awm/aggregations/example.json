@@ -1,0 +1,1243 @@
+{
+  "version": "v2",
+  "supergraph": {
+    "objects": [
+      {
+        "kind": "GraphqlConfig",
+        "version": "v1",
+        "definition": {
+          "query": {
+            "rootOperationTypeName": "Query",
+            "argumentsInput": {
+              "fieldName": "args"
+            },
+            "limitInput": {
+              "fieldName": "limit"
+            },
+            "offsetInput": {
+              "fieldName": "offset"
+            },
+            "filterInput": {
+              "fieldName": "where",
+              "operatorNames": {
+                "and": "_and",
+                "or": "_or",
+                "not": "_not",
+                "isNull": "_is_null"
+              }
+            },
+            "orderByInput": {
+              "fieldName": "order_by",
+              "enumDirectionValues": {
+                "asc": "Asc",
+                "desc": "Desc"
+              },
+              "enumTypeNames": [
+                {
+                  "directions": ["Asc", "Desc"],
+                  "typeName": "OrderBy"
+                }
+              ]
+            },
+            "aggregate": {
+              "filterInputFieldName": "filter_input",
+              "countFieldName": "_count",
+              "countDistinctFieldName": "_count_distinct"
+            }
+          },
+          "mutation": {
+            "rootOperationTypeName": "Mutation"
+          },
+          "apolloFederation": null
+        }
+      }
+    ]
+  },
+  "subgraphs": [
+    {
+      "name": "default",
+      "objects": [
+        {
+          "definition": {
+            "name": "custom_connector",
+            "url": {
+              "singleUrl": {
+                "value": "http://custom_connector:8101"
+              }
+            },
+            "schema": {
+              "version": "v0.1",
+              "schema": {
+                "scalar_types": {
+                  "Actor_Name": {
+                    "representation": {
+                      "type": "string"
+                    },
+                    "aggregate_functions": {},
+                    "comparison_operators": {}
+                  },
+                  "Bool": {
+                    "representation": {
+                      "type": "boolean"
+                    },
+                    "aggregate_functions": {},
+                    "comparison_operators": {
+                      "eq": {
+                        "type": "custom",
+                        "argument_type": {
+                          "type": "named",
+                          "name": "Bool"
+                        }
+                      }
+                    }
+                  },
+                  "HeaderMap": {
+                    "representation": {
+                      "type": "json"
+                    },
+                    "aggregate_functions": {},
+                    "comparison_operators": {}
+                  },
+                  "Int": {
+                    "representation": {
+                      "type": "int32"
+                    },
+                    "aggregate_functions": {
+                      "max": {
+                        "result_type": {
+                          "type": "nullable",
+                          "underlying_type": {
+                            "type": "named",
+                            "name": "Int"
+                          }
+                        }
+                      },
+                      "min": {
+                        "result_type": {
+                          "type": "nullable",
+                          "underlying_type": {
+                            "type": "named",
+                            "name": "Int"
+                          }
+                        }
+                      }
+                    },
+                    "comparison_operators": {}
+                  },
+                  "String": {
+                    "representation": {
+                      "type": "string"
+                    },
+                    "aggregate_functions": {
+                      "max": {
+                        "result_type": {
+                          "type": "nullable",
+                          "underlying_type": {
+                            "type": "named",
+                            "name": "String"
+                          }
+                        }
+                      },
+                      "min": {
+                        "result_type": {
+                          "type": "nullable",
+                          "underlying_type": {
+                            "type": "named",
+                            "name": "String"
+                          }
+                        }
+                      }
+                    },
+                    "comparison_operators": {
+                      "like": {
+                        "type": "custom",
+                        "argument_type": {
+                          "type": "named",
+                          "name": "String"
+                        }
+                      }
+                    }
+                  }
+                },
+                "object_types": {
+                  "actor": {
+                    "description": "An actor",
+                    "fields": {
+                      "favourite_author_id": {
+                        "description": "The actor's favourite author ID",
+                        "type": {
+                          "type": "named",
+                          "name": "Int"
+                        }
+                      },
+                      "id": {
+                        "description": "The actor's primary key",
+                        "type": {
+                          "type": "named",
+                          "name": "Int"
+                        }
+                      },
+                      "movie_id": {
+                        "description": "The actor's movie ID",
+                        "type": {
+                          "type": "named",
+                          "name": "Int"
+                        }
+                      },
+                      "name": {
+                        "description": "The actor's name",
+                        "type": {
+                          "type": "named",
+                          "name": "String"
+                        }
+                      }
+                    }
+                  },
+                  "institution": {
+                    "description": "An institution",
+                    "fields": {
+                      "departments": {
+                        "description": "The institution's departments",
+                        "type": {
+                          "type": "array",
+                          "element_type": {
+                            "type": "named",
+                            "name": "String"
+                          }
+                        }
+                      },
+                      "id": {
+                        "description": "The institution's primary key",
+                        "type": {
+                          "type": "named",
+                          "name": "Int"
+                        }
+                      },
+                      "location": {
+                        "description": "The institution's location",
+                        "type": {
+                          "type": "named",
+                          "name": "location"
+                        }
+                      },
+                      "name": {
+                        "description": "The institution's name",
+                        "type": {
+                          "type": "named",
+                          "name": "String"
+                        }
+                      },
+                      "staff": {
+                        "description": "The institution's staff",
+                        "type": {
+                          "type": "array",
+                          "element_type": {
+                            "type": "named",
+                            "name": "staff_member"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "location": {
+                    "description": "A location",
+                    "fields": {
+                      "campuses": {
+                        "description": "The location's campuses",
+                        "type": {
+                          "type": "array",
+                          "element_type": {
+                            "type": "named",
+                            "name": "String"
+                          }
+                        }
+                      },
+                      "city": {
+                        "description": "The location's city",
+                        "type": {
+                          "type": "named",
+                          "name": "String"
+                        }
+                      },
+                      "country": {
+                        "description": "The location's country",
+                        "type": {
+                          "type": "named",
+                          "name": "String"
+                        }
+                      }
+                    }
+                  },
+                  "login_response": {
+                    "description": "Response to a login action",
+                    "fields": {
+                      "headers": {
+                        "description": "Response headers to be forwarded",
+                        "type": {
+                          "type": "named",
+                          "name": "HeaderMap"
+                        }
+                      },
+                      "response": {
+                        "description": "Authentication successful or not",
+                        "type": {
+                          "type": "named",
+                          "name": "Bool"
+                        }
+                      }
+                    }
+                  },
+                  "movie": {
+                    "description": "A movie",
+                    "fields": {
+                      "id": {
+                        "description": "The movie's primary key",
+                        "type": {
+                          "type": "named",
+                          "name": "Int"
+                        }
+                      },
+                      "rating": {
+                        "description": "The movie's rating",
+                        "type": {
+                          "type": "named",
+                          "name": "Int"
+                        }
+                      },
+                      "title": {
+                        "description": "The movie's title",
+                        "type": {
+                          "type": "named",
+                          "name": "String"
+                        }
+                      }
+                    }
+                  },
+                  "name_query": {
+                    "description": "parameters for querying by name",
+                    "fields": {
+                      "first_name": {
+                        "description": "The actor's first name or null to match any first name",
+                        "type": {
+                          "type": "nullable",
+                          "underlying_type": {
+                            "type": "named",
+                            "name": "String"
+                          }
+                        }
+                      },
+                      "last_name": {
+                        "description": "The actor's last name or null to match any last",
+                        "type": {
+                          "type": "nullable",
+                          "underlying_type": {
+                            "type": "named",
+                            "name": "String"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "staff_member": {
+                    "description": "A staff member",
+                    "fields": {
+                      "first_name": {
+                        "description": "The staff member's first name",
+                        "type": {
+                          "type": "named",
+                          "name": "String"
+                        }
+                      },
+                      "last_name": {
+                        "description": "The staff member's last name",
+                        "type": {
+                          "type": "named",
+                          "name": "String"
+                        }
+                      },
+                      "specialities": {
+                        "description": "The staff member's specialities",
+                        "type": {
+                          "type": "array",
+                          "element_type": {
+                            "type": "named",
+                            "name": "String"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "collections": [
+                  {
+                    "name": "actors",
+                    "description": "A collection of actors",
+                    "arguments": {},
+                    "type": "actor",
+                    "uniqueness_constraints": {
+                      "ActorByID": {
+                        "unique_columns": ["id"]
+                      }
+                    },
+                    "foreign_keys": {}
+                  },
+                  {
+                    "name": "movies",
+                    "description": "A collection of movies",
+                    "arguments": {},
+                    "type": "movie",
+                    "uniqueness_constraints": {
+                      "MovieByID": {
+                        "unique_columns": ["id"]
+                      }
+                    },
+                    "foreign_keys": {}
+                  },
+                  {
+                    "name": "institutions",
+                    "description": "A collection of institutions",
+                    "arguments": {},
+                    "type": "institution",
+                    "uniqueness_constraints": {
+                      "InstitutionByID": {
+                        "unique_columns": ["id"]
+                      }
+                    },
+                    "foreign_keys": {}
+                  },
+                  {
+                    "name": "actors_by_movie",
+                    "description": "Actors parameterized by movie",
+                    "arguments": {
+                      "movie_id": {
+                        "type": {
+                          "type": "named",
+                          "name": "Int"
+                        }
+                      }
+                    },
+                    "type": "actor",
+                    "uniqueness_constraints": {},
+                    "foreign_keys": {}
+                  },
+                  {
+                    "name": "movies_by_actor_name",
+                    "description": "Movies filtered by actor name search parameters",
+                    "arguments": {
+                      "actor_name": {
+                        "description": "the actor name components to search by",
+                        "type": {
+                          "type": "named",
+                          "name": "name_query"
+                        }
+                      }
+                    },
+                    "type": "movie",
+                    "uniqueness_constraints": {},
+                    "foreign_keys": {}
+                  }
+                ],
+                "functions": [
+                  {
+                    "name": "latest_actor_id",
+                    "description": "Get the ID of the most recent actor",
+                    "arguments": {},
+                    "result_type": {
+                      "type": "nullable",
+                      "underlying_type": {
+                        "type": "named",
+                        "name": "Int"
+                      }
+                    }
+                  },
+                  {
+                    "name": "latest_actor_name",
+                    "description": "Get the name of the most recent actor",
+                    "arguments": {},
+                    "result_type": {
+                      "type": "nullable",
+                      "underlying_type": {
+                        "type": "named",
+                        "name": "Actor_Name"
+                      }
+                    }
+                  },
+                  {
+                    "name": "latest_actor",
+                    "description": "Get the most recent actor",
+                    "arguments": {},
+                    "result_type": {
+                      "type": "nullable",
+                      "underlying_type": {
+                        "type": "named",
+                        "name": "actor"
+                      }
+                    }
+                  },
+                  {
+                    "name": "get_actor_by_id",
+                    "description": "Get actor by ID",
+                    "arguments": {
+                      "id": {
+                        "description": "the id of the actor to fetch",
+                        "type": {
+                          "type": "named",
+                          "name": "Int"
+                        }
+                      }
+                    },
+                    "result_type": {
+                      "type": "nullable",
+                      "underlying_type": {
+                        "type": "named",
+                        "name": "actor"
+                      }
+                    }
+                  },
+                  {
+                    "name": "get_movie_by_id",
+                    "description": "Get movie by ID",
+                    "arguments": {
+                      "movie_id": {
+                        "description": "the id of the movie to fetch",
+                        "type": {
+                          "type": "named",
+                          "name": "Int"
+                        }
+                      }
+                    },
+                    "result_type": {
+                      "type": "nullable",
+                      "underlying_type": {
+                        "type": "named",
+                        "name": "movie"
+                      }
+                    }
+                  },
+                  {
+                    "name": "get_actors_by_name",
+                    "description": "Get actors by name",
+                    "arguments": {
+                      "name": {
+                        "description": "the name components to search by",
+                        "type": {
+                          "type": "named",
+                          "name": "name_query"
+                        }
+                      }
+                    },
+                    "result_type": {
+                      "type": "array",
+                      "element_type": {
+                        "type": "named",
+                        "name": "actor"
+                      }
+                    }
+                  },
+                  {
+                    "name": "get_actors_by_movie_id",
+                    "description": "Get all actors from a movie by movie ID",
+                    "arguments": {
+                      "movie_id": {
+                        "description": "the id of the movie to fetch the actors from",
+                        "type": {
+                          "type": "named",
+                          "name": "Int"
+                        }
+                      }
+                    },
+                    "result_type": {
+                      "type": "array",
+                      "element_type": {
+                        "type": "named",
+                        "name": "actor"
+                      }
+                    }
+                  },
+                  {
+                    "name": "get_all_actors",
+                    "description": "Get all the actors",
+                    "arguments": {},
+                    "result_type": {
+                      "type": "array",
+                      "element_type": {
+                        "type": "named",
+                        "name": "actor"
+                      }
+                    }
+                  },
+                  {
+                    "name": "get_all_movies",
+                    "description": "Get all the movies",
+                    "arguments": {},
+                    "result_type": {
+                      "type": "array",
+                      "element_type": {
+                        "type": "named",
+                        "name": "movie"
+                      }
+                    }
+                  },
+                  {
+                    "name": "get_institutions_by_institution_query",
+                    "description": "Get institutions by specifying parts of institution object. For example by 'location.city'. All fields are optional.",
+                    "arguments": {
+                      "institution_query": {
+                        "description": "The institution query object. All fields are optional",
+                        "type": {
+                          "type": "named",
+                          "name": "institution"
+                        }
+                      }
+                    },
+                    "result_type": {
+                      "type": "array",
+                      "element_type": {
+                        "type": "named",
+                        "name": "institution"
+                      }
+                    }
+                  }
+                ],
+                "procedures": [
+                  {
+                    "name": "upsert_actor",
+                    "description": "Insert or update an actor",
+                    "arguments": {
+                      "actor": {
+                        "description": "The actor to insert or update",
+                        "type": {
+                          "type": "named",
+                          "name": "actor"
+                        }
+                      }
+                    },
+                    "result_type": {
+                      "type": "nullable",
+                      "underlying_type": {
+                        "type": "named",
+                        "name": "actor"
+                      }
+                    }
+                  },
+                  {
+                    "name": "update_actor_name_by_id",
+                    "description": "Update an actor name given the ID and new name",
+                    "arguments": {
+                      "id": {
+                        "description": "the id of the actor to update",
+                        "type": {
+                          "type": "named",
+                          "name": "Int"
+                        }
+                      },
+                      "name": {
+                        "description": "the new name of the actor",
+                        "type": {
+                          "type": "named",
+                          "name": "String"
+                        }
+                      }
+                    },
+                    "result_type": {
+                      "type": "nullable",
+                      "underlying_type": {
+                        "type": "named",
+                        "name": "actor"
+                      }
+                    }
+                  },
+                  {
+                    "name": "login",
+                    "description": "Perform a user login",
+                    "arguments": {
+                      "headers": {
+                        "description": "headers required for authentication",
+                        "type": {
+                          "type": "named",
+                          "name": "HeaderMap"
+                        }
+                      },
+                      "password": {
+                        "description": "password of the user",
+                        "type": {
+                          "type": "named",
+                          "name": "String"
+                        }
+                      },
+                      "username": {
+                        "description": "username of the user",
+                        "type": {
+                          "type": "named",
+                          "name": "String"
+                        }
+                      }
+                    },
+                    "result_type": {
+                      "type": "named",
+                      "name": "login_response"
+                    }
+                  },
+                  {
+                    "name": "noop_procedure",
+                    "description": "Procedure which does not perform any actual mutuations on the data",
+                    "arguments": {},
+                    "result_type": {
+                      "type": "nullable",
+                      "underlying_type": {
+                        "type": "named",
+                        "name": "String"
+                      }
+                    }
+                  }
+                ]
+              },
+              "capabilities": {
+                "version": "0.1.3",
+                "capabilities": {
+                  "query": {
+                    "aggregates": {},
+                    "variables": {},
+                    "nested_fields": {
+                      "aggregates": {}
+                    }
+                  },
+                  "mutation": {},
+                  "relationships": {
+                    "relation_comparisons": {},
+                    "order_by_aggregate": {}
+                  }
+                }
+              }
+            }
+          },
+          "version": "v1",
+          "kind": "DataConnectorLink"
+        },
+        {
+          "kind": "ObjectType",
+          "version": "v1",
+          "definition": {
+            "name": "Institution",
+            "fields": [
+              {
+                "name": "Departments",
+                "type": "[String!]!",
+                "description": "The institution's departments"
+              },
+              {
+                "name": "Id",
+                "type": "Int",
+                "description": "The institution's primary key"
+              },
+              {
+                "name": "Location",
+                "type": "Location!",
+                "description": "The institution's location"
+              },
+              {
+                "name": "Name",
+                "type": "String!",
+                "description": "The institution's name"
+              },
+              {
+                "name": "Staff",
+                "type": "[StaffMember!]!",
+                "description": "The institution's staff"
+              }
+            ],
+            "description": "An institution",
+            "graphql": {
+              "typeName": "Institution"
+            },
+            "dataConnectorTypeMapping": [
+              {
+                "dataConnectorName": "custom_connector",
+                "dataConnectorObjectType": "institution",
+                "fieldMapping": {
+                  "Departments": {
+                    "column": {
+                      "name": "departments"
+                    }
+                  },
+                  "Id": {
+                    "column": {
+                      "name": "id"
+                    }
+                  },
+                  "Location": {
+                    "column": {
+                      "name": "location"
+                    }
+                  },
+                  "Name": {
+                    "column": {
+                      "name": "name"
+                    }
+                  },
+                  "Staff": {
+                    "column": {
+                      "name": "staff"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "default",
+      "objects": [
+        {
+          "kind": "ObjectType",
+          "version": "v1",
+          "definition": {
+            "name": "Location",
+            "fields": [
+              {
+                "name": "Campuses",
+                "type": "[String!]!",
+                "description": "The location's campuses"
+              },
+              {
+                "name": "City",
+                "type": "String!",
+                "description": "The location's city"
+              },
+              {
+                "name": "Country",
+                "type": "String!",
+                "description": "The location's city"
+              }
+            ],
+            "description": "A location",
+            "graphql": {
+              "typeName": "Location"
+            },
+            "dataConnectorTypeMapping": [
+              {
+                "dataConnectorName": "custom_connector",
+                "dataConnectorObjectType": "location",
+                "fieldMapping": {
+                  "Campuses": {
+                    "column": {
+                      "name": "campuses"
+                    }
+                  },
+                  "City": {
+                    "column": {
+                      "name": "city"
+                    }
+                  },
+                  "Country": {
+                    "column": {
+                      "name": "country"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "default",
+      "objects": [
+        {
+          "kind": "ObjectType",
+          "version": "v1",
+          "definition": {
+            "name": "StaffMember",
+            "fields": [
+              {
+                "name": "FirstName",
+                "type": "String!",
+                "description": "The staff member's first name"
+              },
+              {
+                "name": "LastName",
+                "type": "String!",
+                "description": "The staff member's last name"
+              },
+              {
+                "name": "Specialities",
+                "type": "[String!]!",
+                "description": "The staff member's specialities"
+              }
+            ],
+            "description": "A staff member",
+            "graphql": {
+              "typeName": "StaffMember"
+            },
+            "dataConnectorTypeMapping": [
+              {
+                "dataConnectorName": "custom_connector",
+                "dataConnectorObjectType": "staff_member",
+                "fieldMapping": {
+                  "FirstName": {
+                    "column": {
+                      "name": "first_name"
+                    }
+                  },
+                  "LastName": {
+                    "column": {
+                      "name": "last_name"
+                    }
+                  },
+                  "Specialities": {
+                    "column": {
+                      "name": "specialities"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "kind": "DataConnectorScalarRepresentation",
+          "version": "v1",
+          "definition": {
+            "dataConnectorName": "custom_connector",
+            "dataConnectorScalarType": "String",
+            "representation": "String",
+            "graphql": {
+              "comparisonExpressionTypeName": "custom_connector_String_comparisonexp"
+            }
+          }
+        },
+        {
+          "kind": "DataConnectorScalarRepresentation",
+          "version": "v1",
+          "definition": {
+            "dataConnectorName": "custom_connector",
+            "dataConnectorScalarType": "Int",
+            "representation": "Int",
+            "graphql": {
+              "comparisonExpressionTypeName": "custom_connector_Int_comparisonexp"
+            }
+          }
+        },
+        {
+          "kind": "Model",
+          "version": "v1",
+          "definition": {
+            "name": "Institution",
+            "objectType": "Institution",
+            "source": {
+              "dataConnectorName": "custom_connector",
+              "collection": "institutions"
+            },
+            "aggregateExpression": "Institution_aggregate_exp",
+            "orderableFields": [
+              {
+                "fieldName": "Departments",
+                "orderByDirections": {
+                  "enableAll": true
+                }
+              },
+              {
+                "fieldName": "Id",
+                "orderByDirections": {
+                  "enableAll": true
+                }
+              },
+              {
+                "fieldName": "Location",
+                "orderByDirections": {
+                  "enableAll": true
+                }
+              },
+              {
+                "fieldName": "Name",
+                "orderByDirections": {
+                  "enableAll": true
+                }
+              },
+              {
+                "fieldName": "Staff",
+                "orderByDirections": {
+                  "enableAll": true
+                }
+              }
+            ],
+            "graphql": {
+              "filterInputTypeName": "Institution_filter_input",
+              "aggregate": {
+                "queryRootField": "Institution_aggregate"
+              },
+              "selectMany": {
+                "queryRootField": "Institution"
+              },
+              "selectUniques": []
+            }
+          }
+        },
+        {
+          "kind": "AggregateExpression",
+          "version": "v1",
+          "definition": {
+            "name": "Institution_aggregate_exp",
+            "operand": {
+              "object": {
+                "aggregatedType": "Institution",
+                "aggregatableFields": [
+                  {
+                    "fieldName": "Id",
+                    "description": "Aggregation over the institution id",
+                    "aggregateExpression": "Int_aggregate_exp"
+                  },
+                  {
+                    "fieldName": "Name",
+                    "description": "Aggregation over the institution name",
+                    "aggregateExpression": "String_aggregate_exp"
+                  },
+                  {
+                    "fieldName": "Location",
+                    "description": "Aggregation over the institution's location",
+                    "aggregateExpression": "Location_aggregate_exp"
+                  }
+                ]
+              }
+            },
+            "count": {
+              "enable": true,
+              "description": "Count of institutions"
+            },
+            "description": "Aggregate expression for the Institution type",
+            "graphql": {
+              "selectTypeName": "Institution_aggregate_exp"
+            }
+          }
+        },
+        {
+          "kind": "AggregateExpression",
+          "version": "v1",
+          "definition": {
+            "name": "Location_aggregate_exp",
+            "operand": {
+              "object": {
+                "aggregatedType": "Location",
+                "aggregatableFields": [
+                  {
+                    "fieldName": "City",
+                    "description": "Aggregation over the location city",
+                    "aggregateExpression": "String_aggregate_exp"
+                  },
+                  {
+                    "fieldName": "Country",
+                    "description": "Aggregation over the location country",
+                    "aggregateExpression": "String_aggregate_exp"
+                  }
+                ]
+              }
+            },
+            "count": {
+              "enable": true,
+              "description": "Count of locations"
+            },
+            "description": "Aggregate expression for the Location type",
+            "graphql": {
+              "selectTypeName": "Location_aggregate_exp"
+            }
+          }
+        },
+        {
+          "kind": "AggregateExpression",
+          "version": "v1",
+          "definition": {
+            "name": "Int_aggregate_exp",
+            "operand": {
+              "scalar": {
+                "aggregatedType": "Int",
+                "aggregationFunctions": [
+                  {
+                    "name": "_min",
+                    "description": "Smallest integer",
+                    "returnType": "Int"
+                  },
+                  {
+                    "name": "_max",
+                    "description": "Largest integer",
+                    "returnType": "Int"
+                  }
+                ],
+                "dataConnectorAggregationFunctionMapping": [
+                  {
+                    "dataConnectorName": "custom_connector",
+                    "dataConnectorScalarType": "Int",
+                    "functionMapping": {
+                      "_min": {
+                        "name": "min"
+                      },
+                      "_max": {
+                        "name": "max"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "count": {
+              "enable": true,
+              "description": "Count of all non-null integers"
+            },
+            "countDistinct": {
+              "enable": true,
+              "description": "Count of all distinct non-null integers"
+            },
+            "description": "Aggregate expression for the Int type",
+            "graphql": {
+              "selectTypeName": "Int_aggregate_exp"
+            }
+          }
+        },
+        {
+          "kind": "AggregateExpression",
+          "version": "v1",
+          "definition": {
+            "name": "String_aggregate_exp",
+            "operand": {
+              "scalar": {
+                "aggregatedType": "String",
+                "aggregationFunctions": [
+                  {
+                    "name": "_min",
+                    "returnType": "String"
+                  },
+                  {
+                    "name": "_max",
+                    "returnType": "String"
+                  }
+                ],
+                "dataConnectorAggregationFunctionMapping": [
+                  {
+                    "dataConnectorName": "custom_connector",
+                    "dataConnectorScalarType": "String",
+                    "functionMapping": {
+                      "_min": {
+                        "name": "min"
+                      },
+                      "_max": {
+                        "name": "max"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "count": {
+              "enable": true
+            },
+            "countDistinct": {
+              "enable": true
+            },
+            "description": "Aggregate expression for the String type",
+            "graphql": {
+              "selectTypeName": "String_aggregate_exp"
+            }
+          }
+        },
+        {
+          "kind": "TypePermissions",
+          "version": "v1",
+          "definition": {
+            "typeName": "Institution",
+            "permissions": [
+              {
+                "role": "admin",
+                "output": {
+                  "allowedFields": [
+                    "Departments",
+                    "Id",
+                    "Location",
+                    "Name",
+                    "Staff"
+                  ]
+                }
+              },
+              {
+                "role": "user",
+                "output": {
+                  "allowedFields": [
+                    "Departments",
+                    "Id",
+                    "Location",
+                    "Name",
+                    "Staff"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "kind": "TypePermissions",
+          "version": "v1",
+          "definition": {
+            "typeName": "Location",
+            "permissions": [
+              {
+                "role": "admin",
+                "output": {
+                  "allowedFields": ["Campuses", "City", "Country"]
+                }
+              },
+              {
+                "role": "user",
+                "output": {
+                  "allowedFields": ["Country"]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "kind": "TypePermissions",
+          "version": "v1",
+          "definition": {
+            "typeName": "StaffMember",
+            "permissions": [
+              {
+                "role": "admin",
+                "output": {
+                  "allowedFields": ["FirstName", "LastName", "Specialities"]
+                }
+              },
+              {
+                "role": "user",
+                "output": {
+                  "allowedFields": ["FirstName", "LastName", "Specialities"]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "kind": "ModelPermissions",
+          "version": "v1",
+          "definition": {
+            "modelName": "Institution",
+            "permissions": [
+              {
+                "role": "admin",
+                "select": {
+                  "filter": null
+                }
+              },
+              {
+                "role": "user",
+                "select": {
+                  "filter": null
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
