@@ -126,6 +126,8 @@ definition:
       type: "[CompanyName!]!"
     - name: instrumentCode
       type: Text!
+    - name: assetClass
+      type: Text!
   graphql:
     typeName: App_Positions
     inputTypeName: App_PositionsInput
@@ -151,6 +153,7 @@ definition:
           - baseTradedMarketValueAmount
           - companyName
           - instrumentCode
+          - assetClass
 
 ---
 kind: ObjectType
@@ -215,7 +218,7 @@ definition:
     - name: branchName
       type: Text!
     - name: businessDate
-      type: Date!
+      type: Text!
     - name: businessSystemCode
       type: Text!
     - name: cashPercentage
@@ -243,7 +246,7 @@ definition:
     - name: investmentObjectiveName
       type: "[InvestmentObjectiveName!]!"
     - name: largeCashPositionAlert
-      type: Text!
+      type: Boolean_1!
     - name: marketNodeIdentifiers
       type: Text!
     - name: modelStrategyName
@@ -256,6 +259,10 @@ definition:
       type: "[Positions!]!"
     - name: transactions
       type: "[Transactions!]!"
+    - name: cusipCodes
+      type: Text!
+    - name: isinCodes
+      type: Text!
   graphql:
     typeName: App_ScppRawAccountsPositionInstrumentTransactionsTaxlots
     inputTypeName: App_ScppRawAccountsPositionInstrumentTransactionsTaxlotsInput
@@ -362,6 +369,12 @@ definition:
         transactions:
           column:
             name: transactions
+        cusipCodes:
+          column:
+            name: cusipCodes
+        isinCodes:
+          column:
+            name: isinCodes
 
 ---
 kind: TypePermissions
@@ -405,6 +418,8 @@ definition:
           - partyTypeName
           - positions
           - transactions
+          - cusipCodes
+          - isinCodes
 
 ---
 kind: ObjectBooleanExpressionType
@@ -512,6 +527,12 @@ definition:
       operators:
         enableAll: true
     - fieldName: transactions
+      operators:
+        enableAll: true
+    - fieldName: cusipCodes
+      operators:
+        enableAll: true
+    - fieldName: isinCodes
       operators:
         enableAll: true
   graphql:
@@ -627,6 +648,12 @@ definition:
     - fieldName: transactions
       orderByDirections:
         enableAll: true
+    - fieldName: cusipCodes
+      orderByDirections:
+        enableAll: true
+    - fieldName: isinCodes
+      orderByDirections:
+        enableAll: true
   graphql:
     selectMany:
       queryRootField: app_scppRawAccountsPositionInstrumentTransactionsTaxlots
@@ -646,7 +673,6 @@ definition:
       select:
         filter: null
 
-# 
 ---
 kind: Relationship
 version: v1
@@ -684,7 +710,7 @@ definition:
         argument:
           argumentName: transactions
 
---- 
+---
 kind: Relationship
 version: v1
 definition:
@@ -701,3 +727,4 @@ definition:
       target:
         argument:
           argumentName: positions
+

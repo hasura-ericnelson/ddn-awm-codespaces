@@ -1,0 +1,327 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ClientEmployeeCoverage
+  fields:
+    - name: employeeFullName
+      type: Text!
+    - name: employeeRoleIdentifier
+      type: Text!
+    - name: employeeRoleName
+      type: Text!
+    - name: employeeStandardIdentifier
+      type: Text!
+    - name: partyEmpRelationshipEntryDate
+      type: Date!
+    - name: partyEmpRelationshipPurposeCode
+      type: Text!
+    - name: partyEmpRelationshipPurposeDescription
+      type: Text!
+  graphql:
+    typeName: App_ClientEmployeeCoverage
+    inputTypeName: App_ClientEmployeeCoverageInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: myelastic
+      dataConnectorObjectType: clientEmployeeCoverage
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ClientEmployeeCoverage
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - employeeFullName
+          - employeeRoleIdentifier
+          - employeeRoleName
+          - employeeStandardIdentifier
+          - partyEmpRelationshipEntryDate
+          - partyEmpRelationshipPurposeCode
+          - partyEmpRelationshipPurposeDescription
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ClientCoverage
+  fields:
+    - name: bookingBranchIdentifier
+      type: Text!
+    - name: bookingBranchName
+      type: Text!
+    - name: clientEmployeeCoverage
+      type: "[ClientEmployeeCoverage!]!"
+    - name: gwmIdentifier
+      type: Text!
+  graphql:
+    typeName: App_ClientCoverage
+    inputTypeName: App_ClientCoverageInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: myelastic
+      dataConnectorObjectType: clientCoverage
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ClientCoverage
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - bookingBranchIdentifier
+          - bookingBranchName
+          - clientEmployeeCoverage
+          - gwmIdentifier
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: PartyAccounts_1
+  fields:
+    - name: alternateAccountIdentifier
+      type: Text!
+    - name: bookingBranchIdentifier
+      type: Text!
+    - name: businessSystemCode
+      type: Text!
+    - name: gwmIdentifier
+      type: Text!
+    - name: partyRoleIdentifier
+      type: Text!
+  graphql:
+    typeName: App_PartyAccounts1
+    inputTypeName: App_PartyAccounts1Input
+  dataConnectorTypeMapping:
+    - dataConnectorName: myelastic
+      dataConnectorObjectType: partyAccounts
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: PartyAccounts_1
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - alternateAccountIdentifier
+          - bookingBranchIdentifier
+          - businessSystemCode
+          - gwmIdentifier
+          - partyRoleIdentifier
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: PartyAccounts
+  fields:
+    - name: id
+      type: Id!
+    - name: bookingBranchIdentifier
+      type: Text!
+    - name: clientCoverage
+      type: "[ClientCoverage!]!"
+    - name: combinedFields
+      type: "[CombinedFields!]!"
+    - name: decisionMakerEci
+      type: Text!
+    - name: dmGwmIdentifier
+      type: Text!
+    - name: enterpriseCustomerIdentifier
+      type: Text!
+    - name: firstName
+      type: Text!
+    - name: gwmIdentifier
+      type: Text!
+    - name: id_1
+      type: Text!
+    - name: lastName
+      type: Text!
+    - name: partyAccounts
+      type: "[PartyAccounts_1!]!"
+  graphql:
+    typeName: App_PartyAccounts
+    inputTypeName: App_PartyAccountsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: myelastic
+      dataConnectorObjectType: party_accounts
+      fieldMapping:
+        id:
+          column:
+            name: _id
+        bookingBranchIdentifier:
+          column:
+            name: bookingBranchIdentifier
+        clientCoverage:
+          column:
+            name: clientCoverage
+        combinedFields:
+          column:
+            name: combinedFields
+        decisionMakerEci:
+          column:
+            name: decisionMakerECI
+        dmGwmIdentifier:
+          column:
+            name: dmGwmIdentifier
+        enterpriseCustomerIdentifier:
+          column:
+            name: enterpriseCustomerIdentifier
+        firstName:
+          column:
+            name: firstName
+        gwmIdentifier:
+          column:
+            name: gwmIdentifier
+        id_1:
+          column:
+            name: id
+        lastName:
+          column:
+            name: lastName
+        partyAccounts:
+          column:
+            name: partyAccounts
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: PartyAccounts
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+          - bookingBranchIdentifier
+          - clientCoverage
+          - combinedFields
+          - decisionMakerEci
+          - dmGwmIdentifier
+          - enterpriseCustomerIdentifier
+          - firstName
+          - gwmIdentifier
+          - id_1
+          - lastName
+          - partyAccounts
+
+---
+kind: ObjectBooleanExpressionType
+version: v1
+definition:
+  name: PartyAccountsBoolExp
+  objectType: PartyAccounts
+  dataConnectorName: myelastic
+  dataConnectorObjectType: party_accounts
+  comparableFields:
+    - fieldName: id
+      operators:
+        enableAll: true
+    - fieldName: bookingBranchIdentifier
+      operators:
+        enableAll: true
+    - fieldName: clientCoverage
+      operators:
+        enableAll: true
+    - fieldName: combinedFields
+      operators:
+        enableAll: true
+    - fieldName: decisionMakerEci
+      operators:
+        enableAll: true
+    - fieldName: dmGwmIdentifier
+      operators:
+        enableAll: true
+    - fieldName: enterpriseCustomerIdentifier
+      operators:
+        enableAll: true
+    - fieldName: firstName
+      operators:
+        enableAll: true
+    - fieldName: gwmIdentifier
+      operators:
+        enableAll: true
+    - fieldName: id_1
+      operators:
+        enableAll: true
+    - fieldName: lastName
+      operators:
+        enableAll: true
+    - fieldName: partyAccounts
+      operators:
+        enableAll: true
+  graphql:
+    typeName: App_PartyAccountsBoolExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: PartyAccounts
+  objectType: PartyAccounts
+  source:
+    dataConnectorName: myelastic
+    collection: party_accounts
+  filterExpressionType: PartyAccountsBoolExp
+  orderableFields:
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: bookingBranchIdentifier
+      orderByDirections:
+        enableAll: true
+    - fieldName: clientCoverage
+      orderByDirections:
+        enableAll: true
+    - fieldName: combinedFields
+      orderByDirections:
+        enableAll: true
+    - fieldName: decisionMakerEci
+      orderByDirections:
+        enableAll: true
+    - fieldName: dmGwmIdentifier
+      orderByDirections:
+        enableAll: true
+    - fieldName: enterpriseCustomerIdentifier
+      orderByDirections:
+        enableAll: true
+    - fieldName: firstName
+      orderByDirections:
+        enableAll: true
+    - fieldName: gwmIdentifier
+      orderByDirections:
+        enableAll: true
+    - fieldName: id_1
+      orderByDirections:
+        enableAll: true
+    - fieldName: lastName
+      orderByDirections:
+        enableAll: true
+    - fieldName: partyAccounts
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: app_partyAccounts
+    selectUniques:
+      - queryRootField: app_partyAccountsById
+        uniqueIdentifier:
+          - id
+    orderByExpressionType: App_PartyAccountsOrderBy
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: PartyAccounts
+  permissions:
+    - role: admin
+      select:
+        filter: null
+
